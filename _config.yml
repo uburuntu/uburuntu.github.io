@@ -1,0 +1,10 @@
+theme: jekyll-theme-slate
+show_downloads: false
+google_analytics:
+
+title: ツ
+description: Рамзан Бекбулатов
+
+plugins:
+  - jekyll-sitemap
+  - jemoji

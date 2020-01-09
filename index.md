@@ -25,4 +25,4 @@ title: RMBK
 
 ## Другое
 
-* [Мой wish-list](http://rmbk.me/wishlist) — для друзей
+* [Мой wish-list](https://rmbk.me/wishlist) — для друзей

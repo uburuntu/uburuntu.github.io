@@ -11,9 +11,9 @@ disqus_shortname:   default
 
 # Social
 analytics-id:       UA-123345095-2
-twitter:
-facebook:
-instagram:
+vk:                 rm_bk
+telegram:           rm_bk
+instagram:          rm_bk
 github:             uburuntu
 
 # personal
@@ -51,7 +51,7 @@ sass:
   style:            compressed
 
 # Gems
-gems:
+plugins:
   - jekyll-mentions
   - jekyll-sitemap
   - jekyll-feed

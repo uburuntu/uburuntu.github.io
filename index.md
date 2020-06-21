@@ -10,7 +10,9 @@ sitemap:
 
 # Hello!
 
-It's me.
+It's me. 
+
+:new_moon_with_face: :full_moon_with_face:
 
 ## My repos
 
@@ -22,7 +24,7 @@ It's me.
 
 ## Interactive projects
 
-* [Математичные книги](http://rmbk.me/math_books) — math books
+* [Математичные книги](http://rmbk.me/math_books) — math books list
 * [Math Clicker](http://rmbk.me/math-clicker) — remake of cookie clicker
 
 ## LinkedIn

@@ -18,12 +18,11 @@ instagram:          rm_bk
 github:             uburuntu
 
 # change this to your email to receive free emails for your contact submissions via Slapform.com
-email:              i@rmbk.me
+email:              bekbulatov.ramzan@ya.ru
 
 # Other
 background_image:   /images/bg.jpg
 # Tip: The color palette and other styles can be configured in /_sass/lib/_vars.scss
-slapform_thankyou_page: /thank-you
 
 defaults:
 - scope:

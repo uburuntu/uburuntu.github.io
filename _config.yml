@@ -11,15 +11,14 @@ disqus_shortname:   default
 
 # Social
 analytics-id:       UA-123345095-2
+linkedin:           rmbk
 vk:                 rm_bk
 telegram:           rm_bk
 instagram:          rm_bk
 github:             uburuntu
 
-# personal
-location:           Moscow
-phone:
-email:              i@rmbk.me # change this to your email to receive free emails for your contact submissions via Slapform.com
+# change this to your email to receive free emails for your contact submissions via Slapform.com
+email:              i@rmbk.me
 
 # Other
 background_image:   /images/bg.jpg
@@ -56,7 +55,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-gist
-  - jekyll-paginate
+  - jemoji
 
 paginate: 6
 paginate_path: "/blog/page:num/"

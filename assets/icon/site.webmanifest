@@ -1,0 +1,19 @@
+{
+    "name": "rmbk.me",
+    "short_name": "rmbk.me",
+    "icons": [
+        {
+            "src": "/assets/icon/android-chrome-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/assets/icon/android-chrome-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
+    "theme_color": "#c24598",
+    "background_color": "#c24598",
+    "display": "standalone"
+}

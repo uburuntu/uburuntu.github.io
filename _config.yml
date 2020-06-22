@@ -51,6 +51,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-gist
+  - jekyll-github-metadata
   - jemoji
 
 paginate: 6

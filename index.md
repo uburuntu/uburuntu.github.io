@@ -24,8 +24,8 @@ It's me.
 
 ## Interactive projects
 
-* [Математичные книги](http://rmbk.me/math_books) — math books list
-* [Math Clicker](http://rmbk.me/math-clicker) — remake of cookie clicker
+* [Математичные книги](https://rmbk.me/math_books) — math books list
+* [Math Clicker](https://rmbk.me/math-clicker) — remake of cookie clicker
 
 ## LinkedIn
 

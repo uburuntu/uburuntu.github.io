@@ -30,7 +30,7 @@
 		font-family: _font(family);
 		font-weight: _font(weight);
 		font-size: 1rem;
-		line-height: 2.375;
+		line-height: 1.5;
 	}
 
 	a {
@@ -65,7 +65,7 @@
 		font-family: _font(family-heading);
 		font-weight: _font(weight-heading);
 		line-height: 1.5;
-		letter-spacing: 0.075em;
+		letter-spacing: 0.025em;
 		text-transform: uppercase;
 		margin: 0 0 (_size(element-margin) * 0.5) 0;
 
@@ -129,8 +129,8 @@
 		border: solid 2px;
 		font-family: _font(family-fixed);
 		font-size: 0.9rem;
-		margin: 0 0.25rem;
-		padding: 0.25rem 0.65rem;
+		margin: 0 0;
+		padding: 0.12rem 0.25rem;
 	}
 
 	pre {

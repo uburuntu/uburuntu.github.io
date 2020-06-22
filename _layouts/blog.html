@@ -34,14 +34,13 @@
         <article class="post featured">
             <header class="major">
                 <h2><a href="#">Personal Blog</a></h2>
-                <p>IT, Design, Photography</p>
+                <p>IT, Design, Travelling, Photography</p>
             </header>
         </article>
 
         <!-- Post -->
         <section class="posts">
             {% for post in site.posts %}
-            {% assign mod3 = forloop.index | modulo: 3 %}
             <article>
                 <header>
                     <span class="date">{{ post.date | date_to_string }}</span>
@@ -51,7 +50,7 @@
                                                                                alt=""/></a>
                 <p>{{ post.excerpt }}</p>
                 <ul class="actions">
-                    <li><a href="{{ post.url | absolute_url }}" class="button">Full Story</a></li>
+                    <li><a href="{{ post.url | absolute_url }}" class="button">Read</a></li>
                 </ul>
             </article>
             {% endfor %}

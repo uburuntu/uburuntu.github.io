@@ -6,9 +6,6 @@ locale:             en_US
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://rmbk.me" # the base hostname & protocol for your site
 
-# Comments
-disqus_shortname:   default
-
 # Social
 analytics-id:       UA-123345095-2
 linkedin:           rmbk

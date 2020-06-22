@@ -28,4 +28,5 @@ It's me.
 * [Math Clicker](http://rmbk.me/math-clicker) — remake of cookie clicker
 
 ## LinkedIn
-<div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="ru_RU" data-type="horizontal" data-theme="light" data-vanity="ramzan-bekbulatov-0b78b999"><a class="LI-simple-link" href='https://ru.linkedin.com/in/ramzan-bekbulatov-0b78b999?trk=profile-badge'>Ramzan Bekbulatov</a></div>
+
+<div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="rmbk"><a class="LI-simple-link" href='https://ru.linkedin.com/in/rmbk/en-us?trk=profile-badge'>Ramzan Bekbulatov</a></div>

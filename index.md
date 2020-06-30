@@ -12,18 +12,15 @@ sitemap:
 
 It's me. 
 
-:new_moon_with_face: :full_moon_with_face:
-
 ## My repos
 
-- `[★48]` [Throttler](https://github.com/uburuntu/throttler) — Simple throttling with asyncio support  
+- `[★50]` [Throttler](https://github.com/uburuntu/throttler) — Simple throttling with asyncio support  
 - `[★25]` [Математичные книги](https://github.com/uburuntu/math_books) — Math books list
 - `[ ★8]` [rfdlife_bot](https://github.com/uburuntu/rfdlife_bot) — Corporate Telegram bot
 - `[ ★6]` [rawg](https://github.com/uburuntu/rawg) — Async API wrapper for RAWG.io 
-- `[ ★3]` [Skobochka](https://github.com/uburuntu/skobochka) — Translation for Telegram
+- `[ ★6]` [Skobochka](https://github.com/uburuntu/skobochka) — Translation for Telegram
 - `[ ★2]` [pgas-pta](https://github.com/uburuntu/pgas-pta) — Scraping automation for university issues 
 - `[ ★0]` [jetson-startup](https://github.com/uburuntu/jetson-startup) — Getting started with the NVIDIA Jetson Nano
-
 
 ## Interactive projects
 

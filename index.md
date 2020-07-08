@@ -14,6 +14,7 @@ It's me.
 
 ## My repos
 
+**[@uburuntu](https://github.com/uburuntu)**:
 - `[★50]` [Throttler](https://github.com/uburuntu/throttler) — Simple throttling with asyncio support  
 - `[★25]` [Математичные книги](https://github.com/uburuntu/math_books) — Math books list
 - `[ ★8]` [rfdlife_bot](https://github.com/uburuntu/rfdlife_bot) — Corporate Telegram bot

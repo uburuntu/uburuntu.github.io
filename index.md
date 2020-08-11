@@ -20,6 +20,7 @@ It's me.
 - `[ ★8]` [rfdlife_bot](https://github.com/uburuntu/rfdlife_bot) — Corporate Telegram bot
 - `[ ★6]` [rawg](https://github.com/uburuntu/rawg) — Async API wrapper for RAWG.io 
 - `[ ★6]` [Skobochka](https://github.com/uburuntu/skobochka) — Translation for Telegram
+- `[ ★4]` [YaWeather](https://github.com/uburuntu/yaweather) — Yandex Weather API wrapper with asyncio support and typings 
 - `[ ★2]` [pgas-pta](https://github.com/uburuntu/pgas-pta) — Scraping automation for university issues 
 - `[ ★0]` [jetson-startup](https://github.com/uburuntu/jetson-startup) — Getting started with the NVIDIA Jetson Nano
 

@@ -32,6 +32,12 @@ sitemap:
 - [Математичные книги](https://rmbk.me/math_books) — Math books site
 - [Math Clicker](https://rmbk.me/math-clicker) — Remake of cookie clicker
 
+## Teaching
+
+- Taught the official Lomonosov MSU course on Python basics
+- 26 students got positive grades in the subject
+- [rmbk.me/mm_python](https://rmbk.me/mm_python/) — course site
+
 ## LinkedIn
 
 <div class="LI-profile-badge"  data-version="v1" data-size="large" data-locale="en_US" data-type="horizontal" data-theme="light" data-vanity="rmbk"><a class="LI-simple-link" href='https://ru.linkedin.com/in/rmbk/en-us?trk=profile-badge'>Ramzan Bekbulatov</a></div>

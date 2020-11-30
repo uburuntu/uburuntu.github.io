@@ -8,11 +8,10 @@ sitemap:
     changefreq: weekly
 ---
 
-# About me
+## About me
  
 - I've been programming for over 8 years
 - started my career with C++, now it’s mainly Python
-- have a successful launch of the startup as a CTO
 - like to travel and photography, had a [camping trip](https://rmbk.me/blog/faroes) on Faroe Islands
 
 ## My repos

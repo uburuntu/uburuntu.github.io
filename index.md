@@ -23,8 +23,9 @@ sitemap:
 - `[ ★9]` [rfdlife_bot](https://github.com/uburuntu/rfdlife_bot) — Corporate Telegram bot
 - `[ ★6]` [Skobochka](https://github.com/uburuntu/skobochka) — Translation for Telegram
 - `[ ★4]` [YaWeather](https://github.com/uburuntu/yaweather) — Yandex Weather API wrapper with asyncio support and typings 
+- `[ ★2]` [jetson-startup](https://github.com/uburuntu/jetson-startup) — Getting started with the NVIDIA Jetson Nano
+- `[ ★2]` [dmonitor](https://github.com/uburuntu/dmonitor) — Internet monitoring in dormitories of MSU
 - `[ ★2]` [pgas-pta](https://github.com/uburuntu/pgas-pta) — Scraping automation for university issues 
-- `[ ★1]` [jetson-startup](https://github.com/uburuntu/jetson-startup) — Getting started with the NVIDIA Jetson Nano
 
 ## Interactive projects
 

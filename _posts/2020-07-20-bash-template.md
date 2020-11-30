@@ -3,7 +3,7 @@ layout: post
 title:  "Bash Template"
 date:   2020-07-20
 excerpt: "Template for .sh files"
-image: "/images/pic01.png"
+image: "https://i.imgur.com/5oG1tEW.png"
 ---
 
 ## Template

@@ -55,9 +55,6 @@ plugins:
   - jekyll-github-metadata
   - jemoji
 
-paginate: 6
-paginate_path: "/blog/page:num/"
-
 jekyll-mentions:
     base_url: https://github.com
 

@@ -1,7 +1,7 @@
 # Site
 title:              Ramzan Bekbulatov
-bio:                'Software Engineer | Team Lead'
-description:        "Personal site"
+bio:                Software Engineer
+description:        Personal site
 locale:             en_US
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://rmbk.me" # the base hostname & protocol for your site

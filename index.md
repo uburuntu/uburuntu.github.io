@@ -8,9 +8,10 @@ sitemap:
     changefreq: weekly
 ---
 
-## About me
 
-Hi! I am *Software Engineer* at *Facebook*.
+Hi! I am **Software Engineer** at **Facebook** 👋🏻
+
+## About me
 
 - I've been programming for over 8 years
 - started my career with C++, now it’s mainly Python
@@ -18,7 +19,7 @@ Hi! I am *Software Engineer* at *Facebook*.
 - making things on Raspberry Pi 3 and Jetson Nano as hobby
 - like to travel and photography, had a [camping trip](https://rmbk.me/blog/faroes) on Faroe Islands
 
-## My repos
+## My repositories
 
 **[@uburuntu](https://github.com/uburuntu)**:
 - `[★65]` [Throttler](https://github.com/uburuntu/throttler) — Simple throttling with asyncio support  
@@ -35,6 +36,7 @@ Hi! I am *Software Engineer* at *Facebook*.
 
 - [MSU Hub Bot](https://t.me/msu_hub_bot) — Bot for MSU chats [ecosystem](https://msut.me/)
 - [Математичные книги](https://rmbk.me/math_books) — Math books site
+- [Love, Death and Math](https://t.me/maatesha) — Telegram channel with math memes
 - [DMonitor](https://github.com/uburuntu/dmonitor/releases) — Cross-platform desktop app for internet monitoring
 - [Math Clicker](https://rmbk.me/math-clicker) — Remake of cookie clicker
 

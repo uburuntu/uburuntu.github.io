@@ -9,33 +9,33 @@ sitemap:
 ---
 
 
-Hi! I am **Software Engineer** at **Facebook** 👋🏻
+Hi! I am **Software Engineer** at **Meta** 👋🏻
 
 ## About me
 
 - I've been programming for over 8 years
-- started my career with C++, now it’s mainly Python
+- started my career with C++ and Python
 - open-source contributor
-- making things on Raspberry Pi 3 and Jetson Nano as hobby
+- making things on Raspberry Pi 3 and Jetson Nano as a hobby
 - like to travel and photography, had a [camping trip](https://rmbk.me/blog/faroes) on Faroe Islands
 
 ## My repositories
 
 **[@uburuntu](https://github.com/uburuntu)**:
 - `[★65]` [Throttler](https://github.com/uburuntu/throttler) — Simple throttling with asyncio support  
-- `[★52]` [Математичные книги](https://github.com/uburuntu/math_books) — Math books list
+- `[★72]` [Математичные книги](https://github.com/uburuntu/awesome-math-ru) — Math books list
 - `[★17]` [rawg](https://github.com/uburuntu/rawg) — Async API wrapper for RAWG.io 
 - `[ ★9]` [rfdlife_bot](https://github.com/uburuntu/rfdlife_bot) — Corporate Telegram bot
-- `[ ★8]` [Skobochka](https://github.com/uburuntu/skobochka) — Translation for Telegram
+- `[ ★9]` [Skobochka](https://github.com/uburuntu/skobochka) — Translation for Telegram
 - `[ ★8]` [YaWeather](https://github.com/uburuntu/yaweather) — Yandex Weather API wrapper 
-- `[ ★2]` [jetson-startup](https://github.com/uburuntu/jetson-startup) — Getting started with the NVIDIA Jetson Nano
+- `[ ★4]` [jetson-startup](https://github.com/uburuntu/jetson-startup) — Getting started with the NVIDIA Jetson Nano
 - `[ ★2]` [dmonitor](https://github.com/uburuntu/dmonitor) — Internet monitoring in dormitories of MSU
 - `[ ★2]` [pgas-pta](https://github.com/uburuntu/pgas-pta) — Scraping automation for university issues 
 
 ## Interactive projects
 
 - [MSU Hub Bot](https://t.me/msu_hub_bot) — Bot for MSU chats [ecosystem](https://msut.me/)
-- [Математичные книги](https://rmbk.me/math_books) — Math books site
+- [Математичные книги](https://rmbk.me/awesome-math-ru) — Math books site
 - [Love, Death and Math](https://t.me/maatesha) — Telegram channel with math memes
 - [DMonitor](https://github.com/uburuntu/dmonitor/releases) — Cross-platform desktop app for internet monitoring
 - [Math Clicker](https://rmbk.me/math-clicker) — Remake of cookie clicker

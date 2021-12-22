@@ -21,6 +21,7 @@ description: Мой wishlist
 - Apple Watch Series 7 45mm
 - Классические часы хорошей марки
 - NVIDIA Shield TV Pro
+- Игра [Baldur's Gate 3](https://baldursgate3.game/) в Steam или GOG
 - Что-то техническое
 - Совместные эмоции: тир, квадрики, лыжи, шашлычки, поездки и т. п.
 

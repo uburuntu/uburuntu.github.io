@@ -13,7 +13,6 @@ Hi! I am **Software Engineer** at **Meta** 👋🏻
 
 ## About me
 
-- I've been programming for over 8 years
 - started my career with C++ and Python
 - open-source contributor
 - making things on Raspberry Pi 3 and Jetson Nano as a hobby

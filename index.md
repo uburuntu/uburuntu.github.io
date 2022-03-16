@@ -9,7 +9,7 @@ sitemap:
 ---
 
 
-Hi! I am **Software Engineer** at **Meta** 👋🏻
+Hi! I am **Software Engineer** at **Some IT company** 👋🏻
 
 ## About me
 

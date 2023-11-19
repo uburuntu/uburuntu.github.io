@@ -15,7 +15,7 @@ Hi! I am Ramzan, **Software Engineer** at **Meta**, Instagram & Messenger ðŸ‘‹ðŸ
 
 - I build infrastructure in a Metaverse-oriented team, collaborating with partners across the whole Meta
 - Effectively balance team leadership and independent work with a strong focus on achieving result
-- An open-source contributor
+- An active open-source contributor
 - Passionate about technologies, make things on Raspberry Pi 3 and Jetson Nano as a hobby
 - Love active travelling and photography, had a [camping trip](https://rmbk.me/blog/faroes) on Faroe Islands
 

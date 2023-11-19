@@ -4,32 +4,33 @@ title: Ramzan Bekbulatov
 description: 
 sitemap:
     priority: 1.0
-    lastmod: 2021-08-27
+    lastmod: 2023-08-27
     changefreq: weekly
 ---
 
 
-Hi! I am **Software Engineer** at **Some IT company** 👋🏻
+Hi! I am Ramzan, **Software Engineer** at **Meta**, Instagram & Messenger 👋🏻
 
 ## About me
 
-- started my career with C++ and Python
-- open-source contributor
-- making things on Raspberry Pi 3 and Jetson Nano as a hobby
-- like to travel and photography, had a [camping trip](https://rmbk.me/blog/faroes) on Faroe Islands
+- I build infrastructure in a Metaverse-oriented team, collaborating with partners across the whole Meta
+- Effectively balance team leadership and independent work with a strong focus on achieving result
+- An open-source contributor
+- Passionate about technologies, make things on Raspberry Pi 3 and Jetson Nano as a hobby
+- Love active travelling and photography, had a [camping trip](https://rmbk.me/blog/faroes) on Faroe Islands
 
 ## My repositories
 
 **[@uburuntu](https://github.com/uburuntu)**:
-- `[★65]` [Throttler](https://github.com/uburuntu/throttler) — Simple throttling with asyncio support  
-- `[★72]` [Математичные книги](https://github.com/uburuntu/awesome-math-ru) — Math books list
-- `[★17]` [rawg](https://github.com/uburuntu/rawg) — Async API wrapper for RAWG.io 
-- `[ ★9]` [rfdlife_bot](https://github.com/uburuntu/rfdlife_bot) — Corporate Telegram bot
-- `[ ★9]` [Skobochka](https://github.com/uburuntu/skobochka) — Translation for Telegram
-- `[ ★8]` [YaWeather](https://github.com/uburuntu/yaweather) — Yandex Weather API wrapper 
-- `[ ★4]` [jetson-startup](https://github.com/uburuntu/jetson-startup) — Getting started with the NVIDIA Jetson Nano
-- `[ ★2]` [dmonitor](https://github.com/uburuntu/dmonitor) — Internet monitoring in dormitories of MSU
-- `[ ★2]` [pgas-pta](https://github.com/uburuntu/pgas-pta) — Scraping automation for university issues 
+- [Throttler](https://github.com/uburuntu/throttler) — Simple throttling with asyncio support  
+- [Математичные книги](https://github.com/uburuntu/awesome-math-ru) — Math books list
+- [rawg](https://github.com/uburuntu/rawg) — Async API wrapper for RAWG.io 
+- [rfdlife_bot](https://github.com/uburuntu/rfdlife_bot) — Corporate Telegram bot
+- [Skobochka](https://github.com/uburuntu/skobochka) — Translation for Telegram
+- [YaWeather](https://github.com/uburuntu/yaweather) — Yandex Weather API wrapper 
+- [jetson-startup](https://github.com/uburuntu/jetson-startup) — Getting started with the NVIDIA Jetson Nano
+- [dmonitor](https://github.com/uburuntu/dmonitor) — Internet monitoring in dormitories of MSU
+- [pgas-pta](https://github.com/uburuntu/pgas-pta) — Scraping automation for university issues 
 
 ## Interactive projects
 

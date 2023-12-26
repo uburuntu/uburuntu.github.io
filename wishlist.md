@@ -10,14 +10,12 @@ description: Мой wishlist
 
 Список составлен для моих друзей, чтобы они не мучились выбором подарка для меня, заодно и сам смогу просто давать ссылку :relieved:
 
-Всё написанное — лишь пожелания в случайном порядке, всегда буду рад любому подарку, выбранному с душой.
+Всё написанное — лишь пожелания в случайном порядке, всегда буду рад любому подарку, выбранному с душой. Детали можете уточнять у [Даши](https//t.me/dash_bk).
 
 ## Итак, список
 
 ### Сначала берите идеи отсюда
 - Зажигалка Zippo с крутой гравировкой (RBK?), [пример](https://www.zippo.com/collections/lighters/products/venetian-352)
-- Игра [Baldur's Gate 3](https://baldursgate3.game/) в Steam или GOG
-- [Galton Board Desktop Probability Machine](https://www.amazon.co.uk/Four-Pines-Publishing-Desktop-Probability/dp/B078Y7RN6Y) oт Four Pines Publishing
 - Инструменты Milwaukee, а конкретнее эти [плоскогубцы](https://www.milwaukeetool.com/Products/Hand-Tools/Pliers/48-22-3078)
 - Что-то техническое или математичское
 - Классические часы хорошей марки
@@ -25,6 +23,9 @@ description: Мой wishlist
 - Совместные эмоции: тир, квадрики, лыжи, шашлычки, поездки и т. п.
 
 ### Потом отсюда
+- Электрический candle lighter, например, [Zippo](https://www.zippo.co.uk/collections/candle)
+- SteamDeck OLED или Nintendo Switch с Зельдой
+- Macbook на ARM чипе
 - Камера для съёмки в 360°
 - Стабилизатор для съёмки
 - Какие-нибудь сладости, например, жевательный мармелад (лакрица — фу)

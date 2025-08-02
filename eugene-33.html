@@ -228,10 +228,46 @@ permalink: /eugene-33
         .music-control:hover {
             background: rgba(255,255,255,0.4);
         }
+        
+        .music-control.hidden {
+            display: none;
+        }
+        
+        #trail-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+        
+        .refresh-wishes {
+            background: rgba(255,255,255,0.3);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1em;
+            color: white;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .refresh-wishes:hover {
+            background: rgba(255,255,255,0.4);
+            transform: scale(1.05);
+        }
+        
+        .refresh-wishes:active {
+            transform: scale(0.95);
+        }
     </style>
 </head>
 <body>
     <canvas id="confetti-canvas"></canvas>
+    <canvas id="trail-canvas"></canvas>
     
     <div class="container">
         <h1>🎉 Happy 33rd Birthday Eugene! 🎉</h1>
@@ -267,10 +303,12 @@ permalink: /eugene-33
         
         <div class="wishes" id="wishes-container">
             <h2>Birthday Wishes for Eugene</h2>
+            <div id="wishes-list"></div>
+            <button class="refresh-wishes" onclick="refreshWishes()">🎲 Show New Wishes</button>
         </div>
     </div>
     
-    <div class="music-control" onclick="toggleMusic()">
+    <div class="music-control hidden" onclick="toggleMusic()">
         🎵 <span id="music-status">Play Music</span>
     </div>
     
@@ -340,22 +378,28 @@ permalink: /eugene-33
         
         // Display random wishes
         function displayRandomWishes() {
-            const container = document.getElementById('wishes-container');
+            const container = document.getElementById('wishes-list');
+            container.innerHTML = '';
             const selectedWishes = [];
             const wishesCopy = [...wishes];
             
-            for (let i = 0; i < 5; i++) {
+            for (let i = 0; i < 3; i++) {
                 const randomIndex = Math.floor(Math.random() * wishesCopy.length);
                 selectedWishes.push(wishesCopy[randomIndex]);
                 wishesCopy.splice(randomIndex, 1);
             }
             
-            selectedWishes.forEach(wish => {
+            selectedWishes.forEach((wish, index) => {
                 const wishDiv = document.createElement('div');
                 wishDiv.className = 'wish';
                 wishDiv.textContent = wish;
+                wishDiv.style.animationDelay = `${index * 0.2}s`;
                 container.appendChild(wishDiv);
             });
+        }
+        
+        function refreshWishes() {
+            displayRandomWishes();
         }
         
         displayRandomWishes();
@@ -419,14 +463,96 @@ permalink: /eugene-33
         
         animateConfetti();
         
-        // Vibration
+        // Vibration (only on supported devices)
         if ('vibrate' in navigator) {
             navigator.vibrate([200, 100, 200, 100, 200]);
         }
         
+        // Trail effect
+        const trailCanvas = document.getElementById('trail-canvas');
+        const trailCtx = trailCanvas.getContext('2d');
+        trailCanvas.width = window.innerWidth;
+        trailCanvas.height = window.innerHeight;
+        
+        const trail = [];
+        const maxTrailLength = 20;
+        let hue = 0;
+        
+        function updateTrail(x, y) {
+            trail.push({ x, y, hue: hue });
+            if (trail.length > maxTrailLength) {
+                trail.shift();
+            }
+            hue = (hue + 2) % 360;
+        }
+        
+        function drawTrail() {
+            trailCtx.clearRect(0, 0, trailCanvas.width, trailCanvas.height);
+            
+            if (trail.length < 2) return;
+            
+            for (let i = 1; i < trail.length; i++) {
+                const prev = trail[i - 1];
+                const curr = trail[i];
+                const progress = i / trail.length;
+                
+                trailCtx.beginPath();
+                trailCtx.moveTo(prev.x, prev.y);
+                trailCtx.lineTo(curr.x, curr.y);
+                
+                trailCtx.strokeStyle = `hsla(${curr.hue}, 100%, 50%, ${progress})`;
+                trailCtx.lineWidth = progress * 5;
+                trailCtx.lineCap = 'round';
+                trailCtx.stroke();
+                
+                // Glow effect
+                trailCtx.shadowBlur = 10;
+                trailCtx.shadowColor = `hsla(${curr.hue}, 100%, 50%, ${progress * 0.5})`;
+                trailCtx.stroke();
+                trailCtx.shadowBlur = 0;
+            }
+        }
+        
+        function animateTrail() {
+            drawTrail();
+            requestAnimationFrame(animateTrail);
+        }
+        
+        animateTrail();
+        
+        // Mouse/touch events for trail
+        
+        function handleStart(e) {
+            const point = e.touches ? e.touches[0] : e;
+            updateTrail(point.clientX, point.clientY);
+        }
+        
+        function handleMove(e) {
+            const point = e.touches ? e.touches[0] : e;
+            updateTrail(point.clientX, point.clientY);
+        }
+        
+        function handleEnd() {
+            setTimeout(() => {
+                trail.length = 0;
+            }, 500); // Small delay before clearing trail
+        }
+        
+        document.addEventListener('mousedown', handleStart);
+        document.addEventListener('mousemove', handleMove);
+        document.addEventListener('mouseup', handleEnd);
+        document.addEventListener('touchstart', handleStart, { passive: false });
+        document.addEventListener('touchmove', (e) => {
+            e.preventDefault(); // Prevent scrolling while drawing trail
+            handleMove(e);
+        }, { passive: false });
+        document.addEventListener('touchend', handleEnd);
+        
         // Fireworks on click
         document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('music-control') || e.target.id === 'music-status') return;
+            if (e.target.classList.contains('music-control') || 
+                e.target.id === 'music-status' || 
+                e.target.classList.contains('refresh-wishes')) return;
             createFirework(e.clientX, e.clientY);
         });
         
@@ -458,7 +584,7 @@ permalink: /eugene-33
             document.body.appendChild(firework);
             
             // Play a small pop sound using Web Audio
-            if (audioContext.state === 'running') {
+            if (window.audioContext && audioContext.state === 'running') {
                 const osc = audioContext.createOscillator();
                 const gain = audioContext.createGain();
                 osc.connect(gain);
@@ -478,11 +604,37 @@ permalink: /eugene-33
         }
         
         // Simple birthday melody using Web Audio API
-        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        let audioContext;
         let isPlaying = false;
         let musicInterval;
         
+        // Check if Web Audio API is available
+        function initAudio() {
+            try {
+                window.AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioContext = new AudioContext();
+                
+                // iOS requires user interaction to start audio
+                if (audioContext.state === 'suspended') {
+                    return true; // Audio available but needs user interaction
+                }
+                return true;
+            } catch (e) {
+                console.log('Web Audio API not supported');
+                return false;
+            }
+        }
+        
+        // Only show music button if audio is available
+        if (initAudio()) {
+            document.querySelector('.music-control').classList.remove('hidden');
+        } else {
+            document.querySelector('.music-control').classList.add('hidden');
+        }
+        
         function playNote(frequency, duration) {
+            if (!audioContext) return;
+            
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
             
@@ -527,6 +679,13 @@ permalink: /eugene-33
         }
         
         function toggleMusic() {
+            if (!audioContext) return;
+            
+            // Resume audio context on user interaction (required for iOS)
+            if (audioContext.state === 'suspended') {
+                audioContext.resume();
+            }
+            
             if (isPlaying) {
                 clearInterval(musicInterval);
                 document.getElementById('music-status').textContent = 'Play Music';
@@ -541,6 +700,8 @@ permalink: /eugene-33
         window.addEventListener('resize', () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
+            trailCanvas.width = window.innerWidth;
+            trailCanvas.height = window.innerHeight;
         });
     </script>
 </body>

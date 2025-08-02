@@ -17,22 +17,47 @@ permalink: /eugene-33
         
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             overflow-x: hidden;
             min-height: 100vh;
             position: relative;
+            transition: background 2s ease;
         }
         
-        #confetti-canvas {
+        /* Color Themes */
+        .theme-sunset {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 50%, #ffcc33 100%);
+        }
+        
+        .theme-ocean {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+        
+        .theme-forest {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 50%, #f4d03f 100%);
+        }
+        
+        .theme-candy {
+            background: linear-gradient(135deg, #ee9ca7 0%, #ffdde1 50%, #ffb6c1 100%);
+        }
+        
+        .theme-cosmic {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e57c2 100%);
+        }
+        
+        /* Canvas layers */
+        #confetti-canvas, #trail-canvas, #balloon-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 1000;
         }
+        
+        #confetti-canvas { z-index: 1000; }
+        #trail-canvas { z-index: 999; }
+        #balloon-canvas { z-index: 998; pointer-events: auto; }
         
         .container {
             text-align: center;
@@ -214,6 +239,45 @@ permalink: /eugene-33
             }
         }
         
+        .floating-emoji {
+            position: fixed;
+            font-size: 2em;
+            pointer-events: none;
+            animation: floatUp 3s ease-out forwards;
+            z-index: 997;
+        }
+        
+        @keyframes floatUp {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(0deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-300px) rotate(360deg);
+            }
+        }
+        
+        .balloon {
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .balloon:hover {
+            transform: scale(1.1);
+        }
+        
+        .balloon-string {
+            position: absolute;
+            width: 1px;
+            height: 100px;
+            background: rgba(0,0,0,0.2);
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
         .music-control {
             position: fixed;
             bottom: 20px;
@@ -231,16 +295,6 @@ permalink: /eugene-33
         
         .music-control.hidden {
             display: none;
-        }
-        
-        #trail-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 999;
         }
         
         .refresh-wishes {
@@ -268,6 +322,7 @@ permalink: /eugene-33
 <body>
     <canvas id="confetti-canvas"></canvas>
     <canvas id="trail-canvas"></canvas>
+    <canvas id="balloon-canvas"></canvas>
     
     <div class="container">
         <h1>🎉 Happy 33rd Birthday Eugene! 🎉</h1>
@@ -357,6 +412,70 @@ permalink: /eugene-33
             "Wishing you a year as amazing as you are, filled with joy and corgi cuddles! 🤗"
         ];
         
+        // Color themes
+        const themes = ['theme-sunset', 'theme-ocean', 'theme-forest', 'theme-candy', 'theme-cosmic'];
+        document.body.className = themes[Math.floor(Math.random() * themes.length)];
+        
+        // Birthday emojis
+        const birthdayEmojis = ['🎂', '🎉', '🎊', '🎈', '🎁', '🎯', '🎲', '⭐', '🌟', '💫'];
+        
+        // Confetti setup
+        const confettiCanvas = document.getElementById('confetti-canvas');
+        const confettiCtx = confettiCanvas.getContext('2d');
+        confettiCanvas.width = window.innerWidth;
+        confettiCanvas.height = window.innerHeight;
+        
+        const confettiPieces = [];
+        const confettiCount = 300;
+        const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ffa500', '#ff69b4'];
+        
+        // Device orientation for tilt control
+        let tiltX = 0;
+        let tiltY = 0;
+        
+        class Confetti {
+            constructor() {
+                this.x = Math.random() * confettiCanvas.width;
+                this.y = Math.random() * confettiCanvas.height - confettiCanvas.height;
+                this.w = Math.random() * 10 + 5;
+                this.h = Math.random() * 5 + 3;
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+                this.speed = Math.random() * 3 + 2;
+                this.velX = Math.random() * 2 - 1;
+                this.angle = Math.random() * 360;
+                this.angleSpeed = Math.random() * 0.2 - 0.1;
+            }
+            
+            update() {
+                this.y += this.speed;
+                this.x += this.velX + tiltX * 0.5;
+                this.y += tiltY * 0.2;
+                this.angle += this.angleSpeed;
+                
+                if (this.y > confettiCanvas.height) {
+                    this.y = -20;
+                    this.x = Math.random() * confettiCanvas.width;
+                }
+                
+                if (this.x > confettiCanvas.width) this.x = 0;
+                if (this.x < 0) this.x = confettiCanvas.width;
+            }
+            
+            draw() {
+                confettiCtx.save();
+                confettiCtx.translate(this.x + this.w / 2, this.y + this.h / 2);
+                confettiCtx.rotate(this.angle);
+                confettiCtx.fillStyle = this.color;
+                confettiCtx.fillRect(-this.w / 2, -this.h / 2, this.w, this.h);
+                confettiCtx.restore();
+            }
+        }
+        
+        // Initialize confetti
+        for (let i = 0; i < confettiCount; i++) {
+            confettiPieces.push(new Confetti());
+        }
+        
         // Countdown timer
         function updateCountdown() {
             const birthDate = new Date('1992-08-02T00:00:00');
@@ -404,68 +523,115 @@ permalink: /eugene-33
         
         displayRandomWishes();
         
-        // Confetti animation
-        const canvas = document.getElementById('confetti-canvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
+        // Balloons
+        const balloonCanvas = document.getElementById('balloon-canvas');
+        const balloonCtx = balloonCanvas.getContext('2d');
+        balloonCanvas.width = window.innerWidth;
+        balloonCanvas.height = window.innerHeight;
         
-        const confettiPieces = [];
-        const confettiCount = 300;
-        const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff', '#ffa500', '#ff69b4'];
+        const balloons = [];
+        const balloonColors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f7dc6f', '#bb8fce'];
         
-        class Confetti {
+        class Balloon {
             constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height - canvas.height;
-                this.w = Math.random() * 10 + 5;
-                this.h = Math.random() * 5 + 3;
-                this.color = colors[Math.floor(Math.random() * colors.length)];
-                this.speed = Math.random() * 3 + 2;
-                this.velX = Math.random() * 2 - 1;
-                this.angle = Math.random() * 360;
-                this.angleSpeed = Math.random() * 0.2 - 0.1;
+                this.x = Math.random() * balloonCanvas.width;
+                this.y = balloonCanvas.height + 100;
+                this.size = 30 + Math.random() * 20;
+                this.color = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+                this.speed = 1 + Math.random() * 2;
+                this.wobble = Math.random() * Math.PI * 2;
+                this.wobbleSpeed = 0.02 + Math.random() * 0.02;
+                this.popped = false;
             }
             
             update() {
-                this.y += this.speed;
-                this.x += this.velX;
-                this.angle += this.angleSpeed;
-                
-                if (this.y > canvas.height) {
-                    this.y = -20;
-                    this.x = Math.random() * canvas.width;
+                if (!this.popped) {
+                    this.y -= this.speed;
+                    this.wobble += this.wobbleSpeed;
+                    this.x += Math.sin(this.wobble) * 0.5;
+                    
+                    if (this.y < -100) {
+                        this.y = balloonCanvas.height + 100;
+                        this.x = Math.random() * balloonCanvas.width;
+                    }
                 }
             }
             
             draw() {
-                ctx.save();
-                ctx.translate(this.x + this.w / 2, this.y + this.h / 2);
-                ctx.rotate(this.angle);
-                ctx.fillStyle = this.color;
-                ctx.fillRect(-this.w / 2, -this.h / 2, this.w, this.h);
-                ctx.restore();
+                if (!this.popped) {
+                    // Balloon
+                    balloonCtx.fillStyle = this.color;
+                    balloonCtx.beginPath();
+                    balloonCtx.ellipse(this.x, this.y, this.size, this.size * 1.2, 0, 0, Math.PI * 2);
+                    balloonCtx.fill();
+                    
+                    // String
+                    balloonCtx.strokeStyle = 'rgba(0,0,0,0.2)';
+                    balloonCtx.lineWidth = 1;
+                    balloonCtx.beginPath();
+                    balloonCtx.moveTo(this.x, this.y + this.size * 1.2);
+                    balloonCtx.lineTo(this.x + Math.sin(this.wobble) * 10, this.y + this.size * 1.2 + 50);
+                    balloonCtx.stroke();
+                    
+                    // Highlight
+                    balloonCtx.fillStyle = 'rgba(255,255,255,0.3)';
+                    balloonCtx.beginPath();
+                    balloonCtx.ellipse(this.x - this.size * 0.3, this.y - this.size * 0.3, this.size * 0.3, this.size * 0.4, -Math.PI / 4, 0, Math.PI * 2);
+                    balloonCtx.fill();
+                }
+            }
+            
+            checkClick(x, y) {
+                const dx = x - this.x;
+                const dy = y - this.y;
+                return Math.sqrt(dx * dx + dy * dy) < this.size;
             }
         }
         
-        for (let i = 0; i < confettiCount; i++) {
-            confettiPieces.push(new Confetti());
+        // Initialize balloons
+        for (let i = 0; i < 8; i++) {
+            setTimeout(() => {
+                balloons.push(new Balloon());
+            }, i * 500);
         }
         
-        function animateConfetti() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            confettiPieces.forEach(piece => {
-                piece.update();
-                piece.draw();
+        // Balloon click handler
+        balloonCanvas.addEventListener('click', (e) => {
+            const rect = balloonCanvas.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            balloons.forEach(balloon => {
+                if (!balloon.popped && balloon.checkClick(x, y)) {
+                    balloon.popped = true;
+                    createBalloonPop(balloon.x, balloon.y, balloon.color);
+                    setTimeout(() => {
+                        balloons.splice(balloons.indexOf(balloon), 1);
+                        balloons.push(new Balloon());
+                    }, 500);
+                }
             });
-            requestAnimationFrame(animateConfetti);
-        }
+        });
         
-        animateConfetti();
-        
-        // Vibration (only on supported devices)
-        if ('vibrate' in navigator) {
-            navigator.vibrate([200, 100, 200, 100, 200]);
+        function createBalloonPop(x, y, color) {
+            for (let i = 0; i < 10; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'firework-particle';
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+                particle.style.backgroundColor = color;
+                
+                const angle = (Math.PI * 2 * i) / 10;
+                const velocity = 30 + Math.random() * 30;
+                const tx = Math.cos(angle) * velocity;
+                const ty = Math.sin(angle) * velocity;
+                
+                particle.style.transform = `translate(${tx}px, ${ty}px)`;
+                particle.style.boxShadow = `0 0 6px ${color}`;
+                
+                document.body.appendChild(particle);
+                setTimeout(() => particle.remove(), 1000);
+            }
         }
         
         // Trail effect
@@ -513,20 +679,7 @@ permalink: /eugene-33
             }
         }
         
-        function animateTrail() {
-            drawTrail();
-            requestAnimationFrame(animateTrail);
-        }
-        
-        animateTrail();
-        
         // Mouse/touch events for trail
-        
-        function handleStart(e) {
-            const point = e.touches ? e.touches[0] : e;
-            updateTrail(point.clientX, point.clientY);
-        }
-        
         function handleMove(e) {
             const point = e.touches ? e.touches[0] : e;
             updateTrail(point.clientX, point.clientY);
@@ -535,24 +688,62 @@ permalink: /eugene-33
         function handleEnd() {
             setTimeout(() => {
                 trail.length = 0;
-            }, 500); // Small delay before clearing trail
+            }, 500);
         }
         
-        document.addEventListener('mousedown', handleStart);
         document.addEventListener('mousemove', handleMove);
         document.addEventListener('mouseup', handleEnd);
-        document.addEventListener('touchstart', handleStart, { passive: false });
-        document.addEventListener('touchmove', (e) => {
-            e.preventDefault(); // Prevent scrolling while drawing trail
-            handleMove(e);
-        }, { passive: false });
+        document.addEventListener('touchmove', handleMove);
         document.addEventListener('touchend', handleEnd);
+        
+        // Double click/tap for floating emojis
+        let lastTapTime = 0;
+        
+        function createFloatingEmoji(x, y) {
+            const emoji = document.createElement('div');
+            emoji.className = 'floating-emoji';
+            emoji.textContent = birthdayEmojis[Math.floor(Math.random() * birthdayEmojis.length)];
+            emoji.style.left = x + 'px';
+            emoji.style.top = y + 'px';
+            document.body.appendChild(emoji);
+            
+            setTimeout(() => emoji.remove(), 3000);
+        }
+        
+        document.addEventListener('dblclick', (e) => {
+            createFloatingEmoji(e.clientX, e.clientY);
+        });
+        
+        document.addEventListener('touchend', (e) => {
+            const currentTime = new Date().getTime();
+            const tapLength = currentTime - lastTapTime;
+            if (tapLength < 500 && tapLength > 0) {
+                const touch = e.changedTouches[0];
+                createFloatingEmoji(touch.clientX, touch.clientY);
+            }
+            lastTapTime = currentTime;
+        });
+        
+        // Device orientation for tilt control
+        if (window.DeviceOrientationEvent) {
+            window.addEventListener('deviceorientation', (e) => {
+                if (e.gamma !== null && e.beta !== null) {
+                    tiltX = e.gamma / 10; // Left/right tilt
+                    tiltY = e.beta / 10;  // Front/back tilt
+                    
+                    // Limit values
+                    tiltX = Math.max(-5, Math.min(5, tiltX));
+                    tiltY = Math.max(-5, Math.min(5, tiltY));
+                }
+            });
+        }
         
         // Fireworks on click
         document.addEventListener('click', (e) => {
             if (e.target.classList.contains('music-control') || 
                 e.target.id === 'music-status' || 
-                e.target.classList.contains('refresh-wishes')) return;
+                e.target.classList.contains('refresh-wishes') ||
+                e.target.id === 'balloon-canvas') return;
             createFirework(e.clientX, e.clientY);
         });
         
@@ -583,41 +774,53 @@ permalink: /eugene-33
             
             document.body.appendChild(firework);
             
-            // Play a small pop sound using Web Audio
-            if (window.audioContext && audioContext.state === 'running') {
-                const osc = audioContext.createOscillator();
-                const gain = audioContext.createGain();
-                osc.connect(gain);
-                gain.connect(audioContext.destination);
-                
-                osc.frequency.value = 800 + Math.random() * 400;
-                gain.gain.setValueAtTime(0.1, audioContext.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.1);
-                
-                osc.start(audioContext.currentTime);
-                osc.stop(audioContext.currentTime + 0.1);
-            }
-            
             setTimeout(() => {
                 firework.remove();
             }, 1000);
         }
         
-        // Simple birthday melody using Web Audio API
+        // Animation loops
+        function animateConfetti() {
+            confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
+            confettiPieces.forEach(piece => {
+                piece.update();
+                piece.draw();
+            });
+            requestAnimationFrame(animateConfetti);
+        }
+        
+        function animateBalloons() {
+            balloonCtx.clearRect(0, 0, balloonCanvas.width, balloonCanvas.height);
+            balloons.forEach(balloon => {
+                balloon.update();
+                balloon.draw();
+            });
+            requestAnimationFrame(animateBalloons);
+        }
+        
+        function animateTrail() {
+            drawTrail();
+            requestAnimationFrame(animateTrail);
+        }
+        
+        animateConfetti();
+        animateBalloons();
+        animateTrail();
+        
+        // Vibration (only on supported devices)
+        if ('vibrate' in navigator) {
+            navigator.vibrate([200, 100, 200, 100, 200]);
+        }
+        
+        // Audio setup
         let audioContext;
         let isPlaying = false;
         let musicInterval;
         
-        // Check if Web Audio API is available
         function initAudio() {
             try {
                 window.AudioContext = window.AudioContext || window.webkitAudioContext;
                 audioContext = new AudioContext();
-                
-                // iOS requires user interaction to start audio
-                if (audioContext.state === 'suspended') {
-                    return true; // Audio available but needs user interaction
-                }
                 return true;
             } catch (e) {
                 console.log('Web Audio API not supported');
@@ -625,11 +828,8 @@ permalink: /eugene-33
             }
         }
         
-        // Only show music button if audio is available
         if (initAudio()) {
             document.querySelector('.music-control').classList.remove('hidden');
-        } else {
-            document.querySelector('.music-control').classList.add('hidden');
         }
         
         function playNote(frequency, duration) {
@@ -681,7 +881,6 @@ permalink: /eugene-33
         function toggleMusic() {
             if (!audioContext) return;
             
-            // Resume audio context on user interaction (required for iOS)
             if (audioContext.state === 'suspended') {
                 audioContext.resume();
             }
@@ -698,10 +897,12 @@ permalink: /eugene-33
         
         // Resize handler
         window.addEventListener('resize', () => {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+            confettiCanvas.width = window.innerWidth;
+            confettiCanvas.height = window.innerHeight;
             trailCanvas.width = window.innerWidth;
             trailCanvas.height = window.innerHeight;
+            balloonCanvas.width = window.innerWidth;
+            balloonCanvas.height = window.innerHeight;
         });
     </script>
 </body>

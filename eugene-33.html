@@ -57,7 +57,7 @@ permalink: /eugene-33
         
         #confetti-canvas { z-index: 1000; }
         #trail-canvas { z-index: 999; }
-        #balloon-canvas { z-index: 998; pointer-events: auto; }
+        #balloon-canvas { z-index: 998; }
         
         .container {
             text-align: center;
@@ -200,6 +200,8 @@ permalink: /eugene-33
             margin: 40px auto;
             max-width: 800px;
             backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 20;
         }
         
         .wish {
@@ -286,7 +288,7 @@ permalink: /eugene-33
             padding: 10px 20px;
             border-radius: 25px;
             cursor: pointer;
-            z-index: 100;
+            z-index: 1001;
         }
         
         .music-control:hover {
@@ -368,6 +370,10 @@ permalink: /eugene-33
     </div>
     
     <script>
+        // Note about Firefox warnings:
+        // - "orientation sensor deprecated" is a Firefox-specific warning about device orientation
+        // - "AudioContext prevented from starting" is expected - browsers require user interaction for audio
+        
         // Birthday wishes array
         const wishes = [
             "Happy 33rd Birthday, Eugene! May your dice always roll nat 20s! 🎲",
@@ -589,20 +595,21 @@ permalink: /eugene-33
         }
         
         // Initialize balloons
-        for (let i = 0; i < 8; i++) {
+        for (let i = 0; i < 4; i++) {
             setTimeout(() => {
                 balloons.push(new Balloon());
-            }, i * 500);
+            }, i * 1000);
         }
         
-        // Balloon click handler
-        balloonCanvas.addEventListener('click', (e) => {
-            const rect = balloonCanvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
+        // Balloon click handler - now on document instead of canvas
+        document.addEventListener('click', (e) => {
+            // Don't process balloon clicks on buttons
+            if (e.target.closest('.music-control') || 
+                e.target.closest('.refresh-wishes') ||
+                e.target.tagName === 'BUTTON') return;
+                
             balloons.forEach(balloon => {
-                if (!balloon.popped && balloon.checkClick(x, y)) {
+                if (!balloon.popped && balloon.checkClick(e.clientX, e.clientY)) {
                     balloon.popped = true;
                     createBalloonPop(balloon.x, balloon.y, balloon.color);
                     setTimeout(() => {
@@ -643,13 +650,16 @@ permalink: /eugene-33
         const trail = [];
         const maxTrailLength = 20;
         let hue = 0;
+        let lastTrailTime = 0;
         
         function updateTrail(x, y) {
-            trail.push({ x, y, hue: hue });
+            const now = Date.now();
+            trail.push({ x, y, hue: hue, time: now });
             if (trail.length > maxTrailLength) {
                 trail.shift();
             }
             hue = (hue + 2) % 360;
+            lastTrailTime = now;
         }
         
         function drawTrail() {
@@ -657,25 +667,38 @@ permalink: /eugene-33
             
             if (trail.length < 2) return;
             
+            const now = Date.now();
+            
+            // Remove old trail points
+            trail.forEach((point, index) => {
+                if (now - point.time > 10000) { // 10 seconds
+                    trail.splice(index, 1);
+                }
+            });
+            
             for (let i = 1; i < trail.length; i++) {
                 const prev = trail[i - 1];
                 const curr = trail[i];
-                const progress = i / trail.length;
+                const age = now - curr.time;
+                const fadeProgress = Math.max(0, 1 - (age / 10000)); // Fade over 10 seconds
+                const progress = (i / trail.length) * fadeProgress;
                 
-                trailCtx.beginPath();
-                trailCtx.moveTo(prev.x, prev.y);
-                trailCtx.lineTo(curr.x, curr.y);
-                
-                trailCtx.strokeStyle = `hsla(${curr.hue}, 100%, 50%, ${progress})`;
-                trailCtx.lineWidth = progress * 5;
-                trailCtx.lineCap = 'round';
-                trailCtx.stroke();
-                
-                // Glow effect
-                trailCtx.shadowBlur = 10;
-                trailCtx.shadowColor = `hsla(${curr.hue}, 100%, 50%, ${progress * 0.5})`;
-                trailCtx.stroke();
-                trailCtx.shadowBlur = 0;
+                if (progress > 0) {
+                    trailCtx.beginPath();
+                    trailCtx.moveTo(prev.x, prev.y);
+                    trailCtx.lineTo(curr.x, curr.y);
+                    
+                    trailCtx.strokeStyle = `hsla(${curr.hue}, 100%, 50%, ${progress})`;
+                    trailCtx.lineWidth = progress * 5;
+                    trailCtx.lineCap = 'round';
+                    trailCtx.stroke();
+                    
+                    // Glow effect
+                    trailCtx.shadowBlur = 10;
+                    trailCtx.shadowColor = `hsla(${curr.hue}, 100%, 50%, ${progress * 0.5})`;
+                    trailCtx.stroke();
+                    trailCtx.shadowBlur = 0;
+                }
             }
         }
         
@@ -685,16 +708,8 @@ permalink: /eugene-33
             updateTrail(point.clientX, point.clientY);
         }
         
-        function handleEnd() {
-            setTimeout(() => {
-                trail.length = 0;
-            }, 500);
-        }
-        
         document.addEventListener('mousemove', handleMove);
-        document.addEventListener('mouseup', handleEnd);
         document.addEventListener('touchmove', handleMove);
-        document.addEventListener('touchend', handleEnd);
         
         // Double click/tap for floating emojis
         let lastTapTime = 0;
@@ -725,7 +740,8 @@ permalink: /eugene-33
         });
         
         // Device orientation for tilt control
-        if (window.DeviceOrientationEvent) {
+        if (window.DeviceOrientationEvent && typeof DeviceOrientationEvent.requestPermission !== 'function') {
+            // Only add listener if permission is not required (non-iOS) or already granted
             window.addEventListener('deviceorientation', (e) => {
                 if (e.gamma !== null && e.beta !== null) {
                     tiltX = e.gamma / 10; // Left/right tilt
@@ -740,11 +756,22 @@ permalink: /eugene-33
         
         // Fireworks on click
         document.addEventListener('click', (e) => {
-            if (e.target.classList.contains('music-control') || 
-                e.target.id === 'music-status' || 
-                e.target.classList.contains('refresh-wishes') ||
-                e.target.id === 'balloon-canvas') return;
-            createFirework(e.clientX, e.clientY);
+            // Check if click is on a button or interactive element
+            if (e.target.closest('.music-control') || 
+                e.target.closest('.refresh-wishes') ||
+                e.target.tagName === 'BUTTON') return;
+                
+            // Check if click is on a balloon
+            let clickedBalloon = false;
+            balloons.forEach(balloon => {
+                if (!balloon.popped && balloon.checkClick(e.clientX, e.clientY)) {
+                    clickedBalloon = true;
+                }
+            });
+            
+            if (!clickedBalloon) {
+                createFirework(e.clientX, e.clientY);
+            }
         });
         
         function createFirework(x, y) {
@@ -813,6 +840,7 @@ permalink: /eugene-33
         }
         
         // Audio setup
+        // Note: AudioContext auto-start warning is expected - audio requires user interaction
         let audioContext;
         let isPlaying = false;
         let musicInterval;

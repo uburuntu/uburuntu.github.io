@@ -70,12 +70,42 @@ permalink: /eugene-33
             font-size: 3em;
             margin-bottom: 20px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            animation: bounce 1s ease-in-out infinite;
+            animation: wobble 2s ease-in-out infinite;
         }
         
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
+        h1 .emoji-left, h1 .emoji-right {
+            display: inline-block;
+            animation: emojiSpin 3s linear infinite;
+        }
+        
+        h1 .emoji-right {
+            animation-delay: -1.5s;
+        }
+        
+        @keyframes emojiSpin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        @keyframes wobble {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg) scale(1);
+            }
+            15% { 
+                transform: translateY(-5px) rotate(-5deg) scale(1.02);
+            }
+            30% { 
+                transform: translateY(3px) rotate(3deg) scale(0.98);
+            }
+            45% { 
+                transform: translateY(-3px) rotate(-3deg) scale(1.01);
+            }
+            60% { 
+                transform: translateY(2px) rotate(2deg) scale(0.99);
+            }
+            75% { 
+                transform: translateY(-1px) rotate(-1deg) scale(1);
+            }
         }
         
         .countdown {
@@ -102,6 +132,41 @@ permalink: /eugene-33
             position: relative;
             width: 250px;
             height: 200px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            transform-origin: center bottom;
+        }
+        
+        .cake-container:hover {
+            transform: scale(1.05);
+        }
+        
+        .cake-container.dancing {
+            animation: cakeDance 1s ease-in-out;
+        }
+        
+        .cake-container.dancing .flame {
+            animation: wildFlicker 0.1s ease-in-out infinite;
+        }
+        
+        @keyframes wildFlicker {
+            0% { transform: scale(1) rotate(-5deg) translateX(0); }
+            50% { transform: scale(1.3) rotate(10deg) translateX(-2px); }
+            100% { transform: scale(1) rotate(-5deg) translateX(0); }
+        }
+        
+        @keyframes cakeDance {
+            0% { transform: rotate(0deg) scale(1); }
+            10% { transform: rotate(-10deg) scale(1.1) translateX(-10px); }
+            20% { transform: rotate(10deg) scale(0.9) translateX(10px); }
+            30% { transform: rotate(-15deg) scale(1.2) translateY(-20px); }
+            40% { transform: rotate(15deg) scale(0.8) translateY(10px); }
+            50% { transform: rotate(-20deg) scale(1.1) translateX(-15px); }
+            60% { transform: rotate(20deg) scale(0.95) translateX(15px); }
+            70% { transform: rotate(-10deg) scale(1.05) translateY(-10px); }
+            80% { transform: rotate(5deg) scale(1) translateY(5px); }
+            90% { transform: rotate(-5deg) scale(1.02); }
+            100% { transform: rotate(0deg) scale(1); }
         }
         
         .cake {
@@ -260,6 +325,17 @@ permalink: /eugene-33
             }
         }
         
+        @keyframes explodeCake {
+            0% {
+                opacity: 1;
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(var(--tx), var(--ty)) rotate(720deg) scale(0);
+            }
+        }
+        
         .balloon {
             position: absolute;
             cursor: pointer;
@@ -327,14 +403,14 @@ permalink: /eugene-33
     <canvas id="balloon-canvas"></canvas>
     
     <div class="container">
-        <h1>🎉 Happy 33rd Birthday Eugene! 🎉</h1>
+        <h1><span class="emoji-left"></span> Happy 33rd Birthday Eugene! <span class="emoji-right"></span></h1>
         
         <div class="countdown">
             <h2>Eugene has been awesome for:</h2>
             <div class="time-display" id="countdown"></div>
         </div>
         
-        <div class="cake-container">
+        <div class="cake-container" title="Click me for a surprise!">
             <div class="cake">
                 <div class="frosting"></div>
                 <div class="candle" style="left: 50px;">
@@ -422,8 +498,69 @@ permalink: /eugene-33
         const themes = ['theme-sunset', 'theme-ocean', 'theme-forest', 'theme-candy', 'theme-cosmic'];
         document.body.className = themes[Math.floor(Math.random() * themes.length)];
         
+        // Cake dance on click
+        const cakeContainer = document.querySelector('.cake-container');
+        cakeContainer.addEventListener('click', () => {
+            cakeContainer.classList.remove('dancing');
+            // Force reflow to restart animation
+            void cakeContainer.offsetWidth;
+            cakeContainer.classList.add('dancing');
+            
+            // Remove class after animation
+            setTimeout(() => {
+                cakeContainer.classList.remove('dancing');
+            }, 1000);
+            
+            // Create mini cake emojis explosion
+            for (let i = 0; i < 8; i++) {
+                const emoji = document.createElement('div');
+                emoji.className = 'floating-emoji';
+                emoji.textContent = '🍰';
+                emoji.style.left = (cakeContainer.offsetLeft + 125) + 'px';
+                emoji.style.top = (cakeContainer.offsetTop + 100) + 'px';
+                emoji.style.fontSize = '1.5em';
+                
+                // Random direction
+                const angle = (Math.PI * 2 * i) / 8;
+                const velocity = 100 + Math.random() * 100;
+                emoji.style.setProperty('--tx', Math.cos(angle) * velocity + 'px');
+                emoji.style.setProperty('--ty', Math.sin(angle) * velocity + 'px');
+                emoji.style.animation = 'explodeCake 1s ease-out forwards';
+                
+                document.body.appendChild(emoji);
+                setTimeout(() => emoji.remove(), 1000);
+            }
+            
+            // Play a fun sound if audio is available
+            if (window.audioContext && audioContext.state === 'running') {
+                // Play a little melody
+                const notes = [523, 659, 784, 1047]; // C, E, G, C (higher)
+                notes.forEach((freq, i) => {
+                    setTimeout(() => {
+                        const osc = audioContext.createOscillator();
+                        const gain = audioContext.createGain();
+                        osc.connect(gain);
+                        gain.connect(audioContext.destination);
+                        
+                        osc.frequency.value = freq;
+                        osc.type = 'sine';
+                        gain.gain.setValueAtTime(0.1, audioContext.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.2);
+                        
+                        osc.start(audioContext.currentTime);
+                        osc.stop(audioContext.currentTime + 0.2);
+                    }, i * 50);
+                });
+            }
+        });
+        
         // Birthday emojis
         const birthdayEmojis = ['🎂', '🎉', '🎊', '🎈', '🎁', '🎯', '🎲', '⭐', '🌟', '💫'];
+        const celebrationEmojis = ['🎉', '🎊', '🎈', '🎆', '🎇', '✨', '🎀', '🎁', '🥳', '🎂'];
+        
+        // Set random emojis in title
+        document.querySelector('.emoji-left').textContent = celebrationEmojis[Math.floor(Math.random() * celebrationEmojis.length)];
+        document.querySelector('.emoji-right').textContent = celebrationEmojis[Math.floor(Math.random() * celebrationEmojis.length)];
         
         // Confetti setup
         const confettiCanvas = document.getElementById('confetti-canvas');
@@ -606,6 +743,7 @@ permalink: /eugene-33
             // Don't process balloon clicks on buttons
             if (e.target.closest('.music-control') || 
                 e.target.closest('.refresh-wishes') ||
+                e.target.closest('.cake-container') ||
                 e.target.tagName === 'BUTTON') return;
                 
             balloons.forEach(balloon => {
@@ -759,6 +897,7 @@ permalink: /eugene-33
             // Check if click is on a button or interactive element
             if (e.target.closest('.music-control') || 
                 e.target.closest('.refresh-wishes') ||
+                e.target.closest('.cake-container') ||
                 e.target.tagName === 'BUTTON') return;
                 
             // Check if click is on a balloon

@@ -17,7 +17,6 @@ social_links:
   twitter: real_rmbk
   telegram: rm_bk
   instagram: rm_bk
-  vk: rm_bk
   email: ramzan.bekbulatov@pm.me
 
 # =============================================================================
@@ -29,7 +28,7 @@ author:
 
 twitter:
   username: real_rmbk
-  card: summary_large_image
+  card: summary
 
 social:
   name: Ramzan Bekbulatov

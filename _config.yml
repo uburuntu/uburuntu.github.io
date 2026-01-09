@@ -1,28 +1,36 @@
-# Site
+# =============================================================================
+# Site Configuration
+# =============================================================================
 title: Ramzan Bekbulatov
-bio: Software Engineer
 description: Personal site
-locale: en_US
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://rmbk.me" # the base hostname & protocol for your site
+url: https://rmbk.me
+baseurl: ""
 repository: uburuntu/uburuntu.github.io
+locale: en_US
 
-# Social
-linkedin: rmbk
-twitter: real_rmbk
-vk: rm_bk
-telegram: rm_bk
-instagram: rm_bk
-github: uburuntu
-email: bekbulatov.ramzan@ya.ru
+# =============================================================================
+# Social Links (used in nav.html)
+# =============================================================================
+social_links:
+  github: uburuntu
+  linkedin: rmbk
+  twitter: real_rmbk
+  telegram: rm_bk
+  instagram: rm_bk
+  vk: rm_bk
+  email: ramzan.bekbulatov@pm.me
 
-# SEO & Social Sharing (jekyll-seo-tag)
+# =============================================================================
+# SEO & Open Graph (jekyll-seo-tag)
+# =============================================================================
 author:
   name: Ramzan Bekbulatov
   twitter: real_rmbk
+
 twitter:
   username: real_rmbk
   card: summary_large_image
+
 social:
   name: Ramzan Bekbulatov
   links:
@@ -30,58 +38,58 @@ social:
     - https://linkedin.com/in/rmbk
     - https://twitter.com/real_rmbk
 
-# Default image for social sharing (og:image)
-image: /images/me.jpg
-
-# Other
+# =============================================================================
+# Theme & Assets
+# =============================================================================
 background_image: /images/bg.jpg
-# Tip: The color palette and other styles can be configured in /_sass/lib/_vars.scss
 
-defaults:
-  - scope:
-      path: ""
-      type: posts
-    values:
-      permalink: "/blog/:title/"
-      layout: post
-      author:
-
-# Jekyll
-permalink: /blog/:title/
-markdown: kramdown
-kramdown:
-  auto_ids: true
-  footnote_nr: 1
-  entity_output: as_char
-  toc_levels: 1..6
-mathjax: true
 sass:
   sass_dir: _sass
   style: compressed
   quiet_deps: true
 
+# =============================================================================
+# Jekyll Settings
+# =============================================================================
+permalink: /blog/:title/
+markdown: kramdown
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+
+# =============================================================================
 # Plugins
+# =============================================================================
 plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-seo-tag
   - jemoji
 
-# Exclude list
+# =============================================================================
+# Content Defaults
+# =============================================================================
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/me.jpg
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+
+# =============================================================================
+# Build Exclusions
+# =============================================================================
 exclude:
-  [
-    README.md,
-    Gemfile,
-    Gemfile.lock,
-    node_modules,
-    gulpfile.js,
-    package.json,
-    _site,
-    src,
-    vendor,
-    CNAME,
-    LICENSE,
-    Rakefile,
-    old,
-    docker-compose.yml,
-  ]
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - docker-compose.yml
+  - vendor
+  - node_modules

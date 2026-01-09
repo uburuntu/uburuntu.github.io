@@ -82,6 +82,13 @@ defaults:
     values:
       layout: post
 
+  # Standalone HTML pages in pages/ folder
+  - scope:
+      path: "pages"
+    values:
+      layout: null
+      sitemap: false
+
 # =============================================================================
 # Build Exclusions
 # =============================================================================

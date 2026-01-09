@@ -71,11 +71,11 @@ plugins:
 # =============================================================================
 # Content Defaults
 # =============================================================================
+# Posts can define og:image in front matter:
+#   ---
+#   image: /images/my-post-image.jpg
+#   ---
 defaults:
-  - scope:
-      path: ""
-    values:
-      image: /images/me.jpg
   - scope:
       path: ""
       type: posts

@@ -1,13 +1,12 @@
 ---
 layout: page
 title: Ramzan Bekbulatov
-description: 
+description:
 sitemap:
-    priority: 1.0
-    lastmod: 2023-08-27
-    changefreq: weekly
+  priority: 1.0
+  lastmod: 2023-08-27
+  changefreq: weekly
 ---
-
 
 Hi! I am Ramzan, **Software Engineer** at **Meta**, Instagram & Messenger 👋🏻
 
@@ -22,15 +21,16 @@ Hi! I am Ramzan, **Software Engineer** at **Meta**, Instagram & Messenger 👋�
 ## My repositories
 
 **[@uburuntu](https://github.com/uburuntu)**:
-- [Throttler](https://github.com/uburuntu/throttler) — Simple throttling with asyncio support  
+
+- [Throttler](https://github.com/uburuntu/throttler) — Simple throttling with asyncio support
 - [Математичные книги](https://github.com/uburuntu/awesome-math-ru) — Math books list
-- [rawg](https://github.com/uburuntu/rawg) — Async API wrapper for RAWG.io 
+- [rawg](https://github.com/uburuntu/rawg) — Async API wrapper for RAWG.io
 - [rfdlife_bot](https://github.com/uburuntu/rfdlife_bot) — Corporate Telegram bot
 - [Skobochka](https://github.com/uburuntu/skobochka) — Translation for Telegram
-- [YaWeather](https://github.com/uburuntu/yaweather) — Yandex Weather API wrapper 
+- [YaWeather](https://github.com/uburuntu/yaweather) — Yandex Weather API wrapper
 - [jetson-startup](https://github.com/uburuntu/jetson-startup) — Getting started with the NVIDIA Jetson Nano
 - [dmonitor](https://github.com/uburuntu/dmonitor) — Internet monitoring in dormitories of MSU
-- [pgas-pta](https://github.com/uburuntu/pgas-pta) — Scraping automation for university issues 
+- [pgas-pta](https://github.com/uburuntu/pgas-pta) — Scraping automation for university issues
 
 ## Interactive projects
 

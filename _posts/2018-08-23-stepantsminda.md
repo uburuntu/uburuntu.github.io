@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Stepantsminda"
-date:   2018-08-23
+title: "Stepantsminda"
+date: 2018-08-23
 excerpt: "Hiking in the mountains of Georgia"
 image: "/images/pic04.jpg"
 ---

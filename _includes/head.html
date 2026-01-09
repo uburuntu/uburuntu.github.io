@@ -1,8 +1,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 
-<title>{{ page.title }}</title>
-<meta name="description" content="{{ page.description }}">
+{% seo %}
 
 <!-- Favicon -->
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/icon/apple-touch-icon.png">
@@ -16,5 +15,6 @@
 <meta name="theme-color" content="#1ca695">
 
 <!-- CSS -->
+<link rel="stylesheet" href="{{ "/assets/css/fontawesome.min.css" | absolute_url }}" />
 <link rel="stylesheet" href="{{ "/assets/css/main.css" | absolute_url }}" />
 <noscript><link rel="stylesheet" href="{{ "/assets/css/noscript.css" | absolute_url }}" /></noscript>

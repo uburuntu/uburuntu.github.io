@@ -1,63 +1,72 @@
 # Site
-title:              Ramzan Bekbulatov
-bio:                Software Engineer
-description:        Personal site
-locale:             en_US
+title: Ramzan Bekbulatov
+bio: Software Engineer
+description: Personal site
+locale: en_US
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://rmbk.me" # the base hostname & protocol for your site
 repository: uburuntu/uburuntu.github.io
 
 # Social
-analytics-id:       UA-123345095-2
-linkedin:           rmbk
-twitter:            real_rmbk
-vk:                 rm_bk
-telegram:           rm_bk
-instagram:          rm_bk
-github:             uburuntu
+linkedin: rmbk
+twitter: real_rmbk
+vk: rm_bk
+telegram: rm_bk
+instagram: rm_bk
+github: uburuntu
 
 # change this to your email to receive free emails for your contact submissions via Slapform.com
-email:              bekbulatov.ramzan@ya.ru
+email: bekbulatov.ramzan@ya.ru
 
 # Other
-background_image:   /images/bg.jpg
+background_image: /images/bg.jpg
 # Tip: The color palette and other styles can be configured in /_sass/lib/_vars.scss
 
 defaults:
-- scope:
-    path: ''
-    type: posts
-  values:
-    permalink: "/blog/:title/"
-    layout: post
-    author:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      permalink: "/blog/:title/"
+      layout: post
+      author:
 
 # Jekyll
-permalink:          /blog/:title/
-markdown:           kramdown
-highlighter:        rouge
+permalink: /blog/:title/
+markdown: kramdown
 kramdown:
-  auto_ids:         true
-  footnote_nr:      1
-  entity_output:    as_char
-  toc_levels:       1..6
-  enable_coderay:   false
-mathjax:            true
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+mathjax: true
 sass:
-  sass_dir:         _sass
-  style:            compressed
+  sass_dir: _sass
+  style: compressed
+  quiet_deps: true
 
-# Gems
+# Plugins
 plugins:
-  - jekyll-mentions
   - jekyll-sitemap
   - jekyll-feed
-  - jekyll-gist
-  - jekyll-github-metadata
+  - jekyll-seo-tag
   - jemoji
 
-jekyll-mentions:
-    base_url: https://github.com
-
 # Exclude list
-exclude: [README.md, Gemfile, Gemfile.lock, node_modules, gulpfile.js, package.json, _site, src, vendor, CNAME, LICENSE, Rakefile, old]
+exclude:
+  [
+    README.md,
+    Gemfile,
+    Gemfile.lock,
+    node_modules,
+    gulpfile.js,
+    package.json,
+    _site,
+    src,
+    vendor,
+    CNAME,
+    LICENSE,
+    Rakefile,
+    old,
+    docker-compose.yml,
+  ]

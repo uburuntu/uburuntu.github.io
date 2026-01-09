@@ -1,5 +1,28 @@
-_site
+# Jekyll build output
 _site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Ruby/Bundler
+vendor/
+.bundle/
+Gemfile.lock
+
+# OS files
 .DS_Store
-.sass-cache
+Thumbs.db
+
+# Root-level favicon files (browsers request these, but we serve from /assets/icon/)
+/favicon.ico
+/apple-touch-icon.png
+/apple-touch-icon-precomposed.png
+
+# IDE
 .idea/
+.vscode/
+*.swp
+*.swo
+
+# Node (if any)
+node_modules/

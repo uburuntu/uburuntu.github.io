@@ -1,44 +1,27 @@
-<!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-  Jekyll integration by somiibo.com
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     {% include head.html %}
-
 </head>
 <body class="is-loading">
 
-<!-- Wrapper -->
 <div id="wrapper" class="fade-in">
-
-    <!-- Header -->
     <header id="header">
-        <a href="{{ "/" | absolute_url }}" class="logo">{{site.title}}</a>
+        <a href="{{ "/" | absolute_url }}" class="logo">{{ site.title }}</a>
     </header>
 
-
-    <!-- Nav -->
     <nav id="nav">
-
         {% include nav.html %}
-
     </nav>
 
-    <!-- Main -->
     <div id="main">
-
         <article class="post featured">
             <header class="major">
-                <h2><a href="#">Personal Blog</a></h2>
+                <h2>Personal Blog</h2>
                 <p>IT, Design, Travelling, Photography</p>
             </header>
         </article>
 
-        <!-- Post -->
         <section class="posts">
             {% for post in site.posts %}
             <article>
@@ -46,27 +29,24 @@
                     <span class="date">{{ post.date | date_to_string }}</span>
                     <h2><a href="{{ post.url | absolute_url }}">{{ post.title }}</a></h2>
                 </header>
-                <a href="{{ post.url | absolute_url }}" class="image fit"><img src="{{ post.image | absolute_url }}"
-                                                                               alt=""/></a>
+                {% if post.image %}
+                <a href="{{ post.url | absolute_url }}" class="image fit">
+                    <img src="{{ post.image | absolute_url }}" alt="{{ post.title }}">
+                </a>
+                {% endif %}
                 <p>{{ post.excerpt }}</p>
                 <ul class="actions">
                     <li><a href="{{ post.url | absolute_url }}" class="button">Read</a></li>
                 </ul>
             </article>
             {% endfor %}
-
         </section>
-
     </div>
 
-    <!-- Footer -->
     {% include foot.html %}
-
 </div>
 
-<!-- Scripts -->
 {% include scripts-main.html %}
-{% include tracking.html %}
 
 </body>
 </html>

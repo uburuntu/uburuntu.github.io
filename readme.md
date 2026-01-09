@@ -1,40 +1,81 @@
-# Massively
-> This is Massively, a text-heavy, article-oriented design built around a huge background
-image.
+# rmbk.me
 
-See a preview of the Massively Jekyll Theme here: [https://iwiedenm.github.io/jekyll-theme-massively/](https://iwiedenm.github.io/jekyll-theme-massively/). <br>
-Massively was originally designed by HTML5UP and Jekyll was integrated by [JekyllUp: Jekyll Themes](https://jekyllup.com)
+Personal website built with Jekyll 4.
 
-## Run
-- `bundle update`
-- `jekyll serve`
+## Local Development
 
-## How to Use This Theme
-Jekyll consumes themes in two flavors; gem-based or spread across multiple folders
-in the site source. This port is of the second type. Concretely, it means that you
-can simply grab the [zip][zip] or clone this repository, run `bundle install`
-in the new directory and finally `bundle exec jekyll serve`.
-You can now access your brand-new Jekyll site on [http://127.0.0.1:4000/][local].
-Enjoy!
+### Option 1: Docker (Recommended)
 
-If you're completely new to Jekyll, check out it's [documentation][jekyll] first.
-It's not too hard, we promise!
+No Ruby installation required. Just run:
 
-[zip]: https://github.com/iwiedenm/jekyll-theme-massively-src/archive/master.zip
-[local]: http://127.0.0.1:4000/
-[jekyll]: https://jekyllrb.com/
-
-## Features
-
-### Slapform.com Integration
-[Slapform](https://slapform.com) is supported out of the box! Just add your email to ```_config.yml``` and test the form.
-Every time one of your visitors submits the form, you'll get an email straight to your inbox containing the submission so you can get back to them right away. Slapform is very extendable, including AJAX submissions, webhooks, and more.
-
-### Auto-Generating Sitemap
-The sitemap is auto generated! Just simply change the sitemap variable in front matter of each page. It looks like so...
+```bash
+docker compose up
 ```
-sitemap:
-  priority: 0.7
-  lastmod: 2017-11-02
-  changefreq: weekly
+
+Site will be available at [http://localhost:4000](http://localhost:4000) with live reload.
+
+### Option 2: Native Ruby
+
+If you prefer native Ruby:
+
+```bash
+# Install Ruby 3.3+ (via rbenv, asdf, or system package manager)
+bundle install
+bundle exec jekyll serve --livereload
 ```
+
+## Deployment
+
+Deployment is automatic via GitHub Actions:
+
+- Push to `main` branch triggers build and deploy
+- Site is deployed to GitHub Pages
+- Dependabot PRs auto-merge on CI success (patch/minor updates)
+
+## Project Structure
+
+```
+├── _config.yml      # Site configuration
+├── _includes/       # Reusable HTML components
+├── _layouts/        # Page templates
+├── _posts/          # Blog posts
+├── _sass/           # SCSS stylesheets
+├── assets/          # Static assets (CSS, JS, fonts, icons)
+├── images/          # Image files
+├── pages/           # Standalone HTML pages (LLM-generated, etc.)
+└── index.md         # Homepage
+```
+
+## Adding Custom HTML Pages
+
+For standalone HTML pages (e.g., birthday pages, LLM-generated content):
+
+1. Create a new `.html` file in `pages/` folder
+2. Add this front matter at the top:
+
+```html
+---
+layout: null
+permalink: /your-page-name
+sitemap: false
+---
+
+<!DOCTYPE html>
+<html>
+  ...
+</html>
+```
+
+**Key settings:**
+
+- `layout: null` - Skips Jekyll templating (use your raw HTML)
+- `permalink: /name` - Sets the URL (rmbk.me/name)
+- `sitemap: false` - Excludes from sitemap (optional)
+
+See `pages/_template.html` for a starter template.
+
+**Example:** `pages/eugene-33.html` → accessible at `rmbk.me/eugene-33`
+
+## Credits
+
+Theme based on [Massively](https://html5up.net/massively) by HTML5 UP.

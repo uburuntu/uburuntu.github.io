@@ -14,9 +14,24 @@ vk: rm_bk
 telegram: rm_bk
 instagram: rm_bk
 github: uburuntu
-
-# change this to your email to receive free emails for your contact submissions via Slapform.com
 email: bekbulatov.ramzan@ya.ru
+
+# SEO & Social Sharing (jekyll-seo-tag)
+author:
+  name: Ramzan Bekbulatov
+  twitter: real_rmbk
+twitter:
+  username: real_rmbk
+  card: summary_large_image
+social:
+  name: Ramzan Bekbulatov
+  links:
+    - https://github.com/uburuntu
+    - https://linkedin.com/in/rmbk
+    - https://twitter.com/real_rmbk
+
+# Default image for social sharing (og:image)
+image: /images/me.jpg
 
 # Other
 background_image: /images/bg.jpg

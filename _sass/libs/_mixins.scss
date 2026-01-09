@@ -100,6 +100,10 @@
 /// @param {integer} $columns Columns.
 /// @param {number} $gutters Gutters.
 @mixin flexgrid-gutters($columns, $gutters) {
+  // Handle list values (extract first item if list)
+  @if type-of($gutters) == list {
+    $gutters: nth($gutters, 1);
+  }
   // Apply padding.
   > * {
     $cell-width: 100% / $columns;
@@ -113,6 +117,10 @@
 /// @param {integer} $columns Columns.
 /// @param {number} $gutters Gutters.
 @mixin flexgrid-gutters-flush($columns, $gutters) {
+  // Handle list values (extract first item if list)
+  @if type-of($gutters) == list {
+    $gutters: nth($gutters, 1);
+  }
   // Apply padding.
   > * {
     $cell-width: 100% / $columns;
@@ -272,7 +280,7 @@
     @include flexgrid-columns($columns);
 
     // Gutters specified?
-    @if ($gutters > 0) {
+    @if ($gutters != 0 and $gutters != null) {
       // Flush gutters?
       @if ($flush) {
         // Initialize gutters (flush).
@@ -328,7 +336,7 @@
   @include flexgrid-columns($columns);
 
   // Gutters specified?
-  @if ($gutters > 0) {
+  @if ($gutters != 0 and $gutters != null) {
     // Flush gutters?
     @if ($flush) {
       // Previous columns specified?

@@ -1,6 +1,6 @@
 <ul class="links">
     <li class="{% if page.url == "/" %}active{% endif %}"><a href="{{ "/" | absolute_url }}">About me</a></li>
-    <li class="{% if page.url contains "/blog/" %}active{% endif %}"><a href="{{ "/blog/" | absolute_url }}">Blog</a></li>
+    {% comment %}<li class="{% if page.url contains "/blog/" %}active{% endif %}"><a href="{{ "/blog/" | absolute_url }}">Blog</a></li>{% endcomment %}
 </ul>
 
 <ul class="icons">

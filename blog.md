@@ -1,6 +1,6 @@
 ---
 layout: blog
-title: Blog — Ramzan Bekbulatov
+title: Blog
 description:
 sitemap:
   priority: 1.0

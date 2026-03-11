@@ -12,6 +12,7 @@
 #let years-since(year, month) = calc.floor((today.year() - year) + (today.month() - month) / 12)
 #let total-years = years-since(2015, 2)   // career start: Feb 2015
 #let meta-years = years-since(2021, 8)    // Meta start: Aug 2021
+#let meta-months = calc.rem(today.month() - 8 + 12, 12)  // months past last Aug
 
 // ─── Colors ──────────────────────────────────────────────────
 // Blue palette matched to the website (rmbk.me) accent colors.
@@ -105,7 +106,7 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* buildin
 #cv-event(
   "Software Engineer, Tech Lead",
   [#link("https://meta.com/")[Meta] — Platform infrastructure across Instagram, Facebook, WhatsApp, Messenger],
-  [Aug 2021 — Present (#meta-years+ yrs)],
+  [August 2021 — Present (#{ meta-years }y #{ meta-months }m)],
 )
 
 #list(
@@ -125,7 +126,7 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* buildin
 #cv-event(
   "Software Engineer, Independent Consultant",
   "Self-Employed — key engagements",
-  "Mar 2020 — Aug 2021 (1y 6m)",
+  "March 2020 — August 2021 (1y 6m)",
 )
 
 #list(
@@ -138,7 +139,7 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* buildin
 #cv-event(
   "Software Engineer → CTO (6-person team)",
   "Centurion Capital — algorithmic trading",
-  "Oct 2018 — Mar 2020 (1y 6m)",
+  "October 2018 — March 2020 (1y 6m)",
 )
 
 #list(
@@ -151,7 +152,7 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* buildin
 #cv-event(
   "Software Engineer",
   [#link("https://rfdyn.com/")[Rock Flow Dynamics] — petroleum industry simulation software],
-  "Feb 2015 — Oct 2018 (3y 9m)",
+  "February 2015 — October 2018 (3y 9m)",
 )
 
 #list(
@@ -202,7 +203,7 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* buildin
 #cv-event(
   "Python Course Instructor",
   "Lomonosov Moscow State University",
-  "Jan — Jun 2019",
+  "January — June 2019",
 )
 
 Delivered the official Python programming curriculum. Guided 26 students to course completion with emphasis on practical software engineering.

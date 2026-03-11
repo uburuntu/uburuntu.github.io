@@ -2,7 +2,7 @@
 permalink: /cv/
 sitemap: false
 ---
-
+{% assign years = site.time | date: "%Y" | minus: 2015 %}
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,14 +11,14 @@ sitemap: false
     <title>CV — Ramzan Bekbulatov</title>
 
     <meta property="og:title" content="CV — Ramzan Bekbulatov" />
-    <meta property="og:description" content="Software Engineer · Tech Lead · 11+ years in distributed systems and platform infrastructure" />
+    <meta property="og:description" content="Software Engineer · Tech Lead · {{ years }}+ years in distributed systems and platform infrastructure" />
     <meta property="og:image" content="https://rmbk.me/images/cv-preview.png" />
     <meta property="og:url" content="https://rmbk.me/cv/" />
     <meta property="og:type" content="profile" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="CV — Ramzan Bekbulatov" />
-    <meta name="twitter:description" content="Software Engineer · Tech Lead · 11+ years in distributed systems and platform infrastructure" />
+    <meta name="twitter:description" content="Software Engineer · Tech Lead · {{ years }}+ years in distributed systems and platform infrastructure" />
     <meta name="twitter:image" content="https://rmbk.me/images/cv-preview.png" />
     <style>
       * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -50,6 +50,12 @@ sitemap: false
         color: #333;
         font-weight: 600;
       }
+      .updated {
+        font-size: 12px;
+        color: #999;
+        margin-left: 12px;
+        font-weight: 400;
+      }
       .actions { display: flex; gap: 16px; }
       embed {
         flex: 1;
@@ -60,7 +66,7 @@ sitemap: false
   </head>
   <body>
     <header>
-      <span class="title">Ramzan Bekbulatov — CV</span>
+      <span class="title">Ramzan Bekbulatov — CV{% if site.data.cv.last_modified %}<span class="updated">Updated {{ site.data.cv.last_modified }}</span>{% endif %}</span>
       <div class="actions">
         <a href="/Bekbulatov-Ramzan-CV.pdf" download>Download PDF</a>
         <a href="/">← rmbk.me</a>

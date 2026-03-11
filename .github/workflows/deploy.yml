@@ -28,6 +28,8 @@ jobs:
           typst compile --font-path cv/fonts cv/main.typ Bekbulatov-Ramzan-CV.pdf
           typst compile --font-path cv/fonts cv/main.typ images/cv-preview.png --format png --ppi 150 --pages 1
           cp Bekbulatov-Ramzan-CV.pdf cv.pdf
+          mkdir -p _data
+          echo "last_modified: \"$(git log -1 --format='%cd' --date=format:'%B %Y' -- cv/main.typ)\"" > _data/cv.yml
 
       - uses: ruby/setup-ruby@v1
         with:

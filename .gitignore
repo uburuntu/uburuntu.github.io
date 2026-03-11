@@ -20,6 +20,7 @@ Thumbs.db
 
 # CV build output
 cv/build/
+_data/cv.yml
 
 # Claude Code
 .claude/

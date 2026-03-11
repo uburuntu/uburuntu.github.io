@@ -54,8 +54,9 @@
   v(0.3em)
 }
 
-// Org name in accent blue + description in grey.
-#let cv-org(name, desc) = {
+// Org name in accent blue + optional icon + description in grey.
+#let cv-org(name, desc, icon: none) = {
+  if icon != none { text(size: 8.5pt, fill: icon-grey)[#icon#h(3pt)] }
   text(weight: "bold", fill: accent-blue)[#name]
   if desc != none [ — #desc]
 }
@@ -68,7 +69,7 @@
     text(size: 10.5pt, fill: medium-grey, font: "Roboto Slab")[#role],
     align(right, text(size: 9pt, fill: grey)[#icon[#fa-calendar()] #dates]),
   )
-  v(-0.15em)
+  v(0.1em)
   text(size: 9.5pt)[#org]
   v(0.15em)
 }
@@ -85,8 +86,8 @@
   grid(
     columns: (8.5em, 1fr),
     column-gutter: 8pt,
-    text(weight: "bold", size: 9pt, fill: blue, tracking: 0.3pt, font: "Roboto Slab")[#upper(category)],
-    text(size: 9.5pt, fill: medium-grey)[#items],
+    text(weight: "medium", size: 9pt, fill: blue)[#category],
+    text(size: 9pt, fill: medium-grey)[#items],
   )
 }
 
@@ -96,7 +97,7 @@
   #v(0pt)
   #text(size: 11.5pt, fill: blue, weight: "medium", tracking: 0.5pt)[Software Engineer · Tech Lead]
   #v(5pt)
-  #text(size: 8.5pt, fill: grey)[
+  #text(size: 9pt, fill: grey)[
     #icon[#fa-location-dot()] London, UK
     #h(8pt) #text(fill: light-grey)[|] #h(8pt)
     #link("mailto:ramzan.bekbulatov@pm.me")[#icon[#fa-envelope()] ramzan.bekbulatov\@pm.me]
@@ -123,28 +124,28 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* buildin
 
 #cv-event(
   "Software Engineer, Tech Lead",
-  cv-org("Meta", "Platform infrastructure across Instagram, Facebook, WhatsApp, Messenger"),
-  [August 2021 — Present (#plural(meta-years, "year") #plural(meta-months, "month"))],
+  cv-org("Meta", "Platform infrastructure across Instagram, Facebook, WhatsApp, Messenger", icon: fa-meta()),
+  [August 2021 — Present · #plural(meta-years, "year") #plural(meta-months, "month")],
 )
 
 #list(
   [Built Artifacto from scratch — an event-driven rendering framework with on-demand artifact generation and real-time sync. Presented to VP of Engineering for buy-in. Delivers *1B+ daily artifacts*, adopted across 12+ use-cases, saves 2–3 weeks each],
 
-  [Unified 4 fragmented APIs into the Unlockables Platform via consolidated endpoints, smart pagination, and image caching. Achieved *90% p50 latency improvement* (sub-500ms vs 2.5s legacy), powers 8+ clients across Meta apps],
+  [Unified 4 fragmented APIs into the Unlockables Platform via consolidated endpoints, smart pagination, and image caching. Achieved *90% p50 latency improvement* — sub-500ms vs 2.5s legacy — powers 8+ clients across Meta apps],
 
   [Built an AI-powered codemod to address silent exception catches masking reliability issues. Adopted company-wide, *7K+ issues resolved* and continuously running],
 
-  [Sole DRI on Messenger for Style 2 launch (*7M DAU*). Kept the entire backend running when team went from *4 engineers to 1*, shipping a Company priority on time],
+  [Sole DRI on Messenger for Style 2 launch, *7M DAU*. Kept the entire backend running when team went from *4 engineers to 1*, shipping a Company priority on time],
 
-  [\#1 code reviewer year over year (*2,500+ substantive reviews*). Individually mentored *8+ engineers*, conducted 60+ interviews. Re-organized engineering practices (*24% → 82%* satisfaction). Drove roadmap planning across Reality Labs and partners, defining priorities and aligning partner teams],
+  [\#1 code reviewer year over year — *2,500+ substantive reviews*. Individually mentored *8+ engineers*, conducted 60+ interviews. Re-organized engineering practices, *24% → 82%* satisfaction. Drove roadmap planning across Reality Labs and partners, defining priorities and aligning partner teams],
 )
 
 #divider()
 
 #cv-event(
   "Software Engineer, Independent Consultant",
-  cv-org("Self-Employed", "key engagements"),
-  "March 2020 — August 2021 (1 year 6 months)",
+  cv-org("Self-Employed", "key engagements", icon: fa-briefcase()),
+  "March 2020 — August 2021 · 1 year 6 months",
 )
 
 #list(
@@ -155,22 +156,22 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* buildin
 #divider()
 
 #cv-event(
-  "Software Engineer → CTO (6-person team)",
-  cv-org("Centurion Capital", "algorithmic trading"),
-  "October 2018 — March 2020 (1 year 6 months)",
+  "Software Engineer → CTO · 6-person team",
+  cv-org("Centurion Capital", "algorithmic trading", icon: fa-chart-line()),
+  "October 2018 — March 2020 · 1 year 6 months",
 )
 
 #list(
   [Promoted to CTO — owned all technical strategy and architecture decisions],
-  [Built the entire trading platform from zero — real-time data pipeline processing terabytes per day, ML-driven trading engine, and fault-tolerant Kubernetes-based microservices (*14 services*) with 24/7 uptime],
+  [Built the entire trading platform from zero — real-time data pipeline processing terabytes per day, ML-driven trading engine, and fault-tolerant Kubernetes-based microservices, *14 services* with 24/7 uptime],
 )
 
 #divider()
 
 #cv-event(
   "Software Engineer",
-  cv-org("Rock Flow Dynamics", "petroleum industry simulation software"),
-  "February 2015 — October 2018 (3 years 9 months)",
+  cv-org("Rock Flow Dynamics", "petroleum industry simulation software", icon: fa-industry()),
+  "February 2015 — October 2018 · 3 years 9 months",
 )
 
 #list(
@@ -200,7 +201,7 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* buildin
 #cv-section("Projects & Open Source")
 
 #list(
-  [*#link("https://github.com/uburuntu/compeek")[compeek]* (#link("https://compeek.rmbk.me")[live]) — AI desktop automation agent that enables Claude to control any desktop app through a browser interface. Built for the Anthropic hackathon (Feb 2026). TypeScript, Docker.],
+  [*#link("https://github.com/uburuntu/compeek")[compeek]* · #link("https://compeek.rmbk.me")[live] — AI desktop automation agent that enables Claude to control any desktop app through a browser interface. Built for the Anthropic hackathon, Feb 2026. TypeScript, Docker.],
 
   [*#link("https://github.com/uburuntu/derp")[DerpRobot]* — AI-powered Telegram bot with *60K+ users*. Web search, image/video/audio generation via Gemini API. Python, PostgreSQL, Docker],
 
@@ -212,14 +213,14 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* buildin
 
 #text(size: 10.5pt, fill: medium-grey, font: "Roboto Slab")[Mechanics and Mathematics — Master's Degree in Computational Mathematics]
 #v(-0.1em)
-#text(size: 9.5pt)[#cv-org("Lomonosov Moscow State University", "Russia's top-ranked university")]
+#text(size: 9.5pt)[#cv-org("Lomonosov Moscow State University", "Russia's top-ranked university", icon: fa-graduation-cap())]
 
 // ─── Teaching ────────────────────────────────────────────────
 #cv-section("Teaching")
 
 #cv-event(
   "Python Course Instructor",
-  cv-org("Lomonosov Moscow State University", none),
+  cv-org("Lomonosov Moscow State University", none, icon: fa-graduation-cap()),
   "January — June 2019",
 )
 

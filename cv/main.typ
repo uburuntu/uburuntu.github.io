@@ -3,7 +3,7 @@
 // Compile: make pdf (or: typst compile main.typ Bekbulatov-Ramzan-CV.pdf)
 // Live:    make watch
 // Preview: make preview (PNG at 200 PPI)
-// Served at: rmbk.me/Bekbulatov-Ramzan-CV.pdf (rmbk.me/cv.pdf redirects here)
+// Served at: rmbk.me/Bekbulatov-Ramzan-CV.pdf (also rmbk.me/cv.pdf)
 // See cv/CLAUDE.md for design rationale and content strategy.
 
 // ─── Auto-computed dates ─────────────────────────────────────
@@ -75,7 +75,7 @@
 #align(center)[
   #text(size: 32pt, weight: "bold", tracking: 2pt)[Ramzan Bekbulatov]
   #v(0pt)
-  #text(size: 11.5pt, fill: blue, weight: "medium", tracking: 1pt)[Software Engineer · Tech Lead]
+  #text(size: 11.5pt, fill: blue, weight: "medium", tracking: 0.5pt)[Software Engineer · Tech Lead]
   #v(5pt)
   #text(size: 8.5pt, fill: grey)[
     London, UK
@@ -96,7 +96,7 @@
 // Keep to 3–4 lines. Lead with years + domain, then 2 concrete achievements, then leadership.
 #cv-section("Summary")
 
-Software Engineer and Tech Lead with *#total-years+ years of experience* in distributed systems and platform infrastructure, including #meta-years+ years at Meta. Designed and built *0→1 platform solutions* adopted across organizations — from a real-time avatar rendering framework delivering 1B+ daily artifacts to *AI-powered code modernization tools* deployed company-wide. Led backend teams through multiple re-orgs, mentored engineers to promotions, and influenced technical roadmaps across 3+ organizations.
+Software Engineer and Tech Lead with *#total-years+ years of experience* building and consolidating platform infrastructure at scale, including #meta-years+ years at Meta. Specialize in *unifying fragmented systems into reliable, high-performance platforms* — from a rendering framework serving 1B+ daily artifacts to *AI-powered code modernization* adopted company-wide. Operating at Staff scope: driving cross-org technical strategy, owning 0→1 platform architecture, and mentoring engineers across multiple teams.
 
 // ─── Work Experience ─────────────────────────────────────────
 // Each bullet: bold lead-in phrase + one bold metric. Grounded in perf review data.
@@ -104,22 +104,20 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* in dist
 
 #cv-event(
   "Software Engineer, Tech Lead",
-  [#link("https://meta.com/")[Meta] — Avatars infrastructure across Messenger, Instagram, Facebook, WhatsApp],
-  "Aug 2021 — Present",
+  [#link("https://meta.com/")[Meta] — Platform infrastructure across Instagram, Facebook, WhatsApp, Messenger],
+  [Aug 2021 — Present (#meta-years+ yrs)],
 )
 
 #list(
-  [*Built Artifacto from scratch* — a reusable framework for on-demand avatar artifact rendering on Messenger. Presented to VP of Engineering to secure buy-in. Delivers *1B+ daily artifacts* and saves 2–3 weeks of engineering effort per new use-case],
+  [*Built Artifacto from scratch* — an event-driven rendering framework with on-demand artifact generation and real-time sync. Presented to VP of Engineering for buy-in. Delivers *1B+ daily artifacts*, saves 2–3 weeks per new use-case],
 
-  [*Unified 4 fragmented APIs* (Facebook, Instagram, Messenger, Bloks) into the Unlockables Platform, replacing scattered implementations. Achieved *90% p50 latency improvement* (sub-500ms vs 2.5s legacy), powers 8+ clients across Meta apps],
+  [*Unified 4 fragmented APIs* into the Unlockables Platform via consolidated endpoints, smart pagination, and image caching. Achieved *90% p50 latency improvement* (sub-500ms vs 2.5s legacy), powers 8+ clients across Meta apps],
 
-  [*Built an AI-powered codemod* to address 11K+ silent exception catches masking reliability issues across the entire codebase. Adopted company-wide and continuously running, *7K+ issues resolved* to date],
+  [*Built an AI-powered codemod* to address silent exception catches masking reliability issues. Adopted company-wide, *7K+ issues resolved* and continuously running],
 
-  [*Sole backend DRI for Avatar Style 2.0 launch* (7M Avatar DAU). Maintained the entire avatar backend when the team contracted from *4 engineers to 1*, delivering a Company priority on time],
+  [*Sole DRI on Messenger for Style 2 launch* (7M DAU). Kept the entire backend running when team went from *4 engineers to 1*, shipping a Company priority on time],
 
-  [*\#1 code reviewer year over year* (2,500+ reviews with substantive comments), using reviews as a coaching tool to teach architectural patterns and best practices. Authored 50+ wiki pages and team code standards],
-
-  [*Mentored 8+ engineers* (IC4–IC5) and conducted 60+ hiring interviews. Re-organized engineering practices, lifting satisfaction from *24% to 82%* in team surveys. Drove roadmap planning across 3+ organizations, aligning partner teams on architectural direction],
+  [*\#1 code reviewer year over year* (2,500+ substantive reviews). *Individually mentored 8+ engineers*, conducted 60+ interviews. Re-organized engineering practices (*24% → 82%* satisfaction). Drove roadmap planning across Reality Labs and partners, defining priorities and aligning partner teams],
 )
 
 #divider()
@@ -166,22 +164,22 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* in dist
 // Centralized keywords for ATS. No per-role tags — looks more senior.
 #cv-section("Skills & Expertise")
 
-#skills-row("Systems", "Distributed Systems, System Design, Event-Driven Architecture, Platform Engineering, Reliability")
+#skills-row("Systems", "Distributed Systems, System Design, Event-Driven Architecture, Platform Engineering, Reliability, SLOs, Observability")
+#v(0.15em)
+#skills-row("Leadership", "Technical roadmapping, cross-org alignment, mentorship, hiring")
+#v(0.15em)
+#skills-row("AI", "LLM integration (Gemini, Claude, OpenAI), AI agent orchestration, agentic systems")
 #v(0.15em)
 #skills-row("Languages", "Python, Hack/PHP, C++, TypeScript, SQL")
 #v(0.15em)
 #skills-row("Infrastructure", "Kafka, Redis, PostgreSQL, ClickHouse, Kubernetes, Docker, GraphQL")
-#v(0.15em)
-#skills-row("AI", "Gemini API, Claude API, OpenAI API, OpenRouter, AI-powered code modernization at scale")
-#v(0.15em)
-#skills-row("Leadership", "Technical roadmapping, cross-org alignment, mentorship, hiring")
 
 // ─── Projects & Open Source ──────────────────────────────────
 // Lead with AI-relevant projects (targeting AI companies).
 #cv-section("Projects & Open Source")
 
 #list(
-  [*#link("https://github.com/uburuntu/compeek")[compeek]* — AI desktop automation agent that enables Claude to control any desktop app through a browser interface. Built for the Anthropic Claude Code Hackathon (Feb 2026). TypeScript, Docker. #link("https://compeek.rmbk.me")[(live)]],
+  [*#link("https://github.com/uburuntu/compeek")[compeek]* (#link("https://compeek.rmbk.me")[live]) — AI desktop automation agent that enables Claude to control any desktop app through a browser interface. Built for the Anthropic hackathon (Feb 2026). TypeScript, Docker.],
 
   [*#link("https://github.com/uburuntu/derp")[DerpRobot]* — AI-powered Telegram bot with *60K+ users*. Web search, image/video/audio generation via Gemini API. Python, PostgreSQL, Docker],
 
@@ -193,10 +191,10 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* in dist
 
 #grid(
   columns: (1fr),
-  text(weight: "bold", size: 10.5pt, fill: medium-grey)[Mechanics and Mathematics — Computational Mathematics],
+  text(weight: "bold", size: 10.5pt, fill: medium-grey)[Mechanics and Mathematics — Master's Degree in Computational Mathematics],
 )
 #v(-0.1em)
-#text(size: 9.5pt, fill: grey)[Lomonosov Moscow State University — Russia's top-ranked university (\#1 nationally)]
+#text(size: 9.5pt, fill: grey)[Lomonosov Moscow State University — Russia's top-ranked university]
 
 // ─── Teaching ────────────────────────────────────────────────
 #cv-section("Teaching")
@@ -207,4 +205,4 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* in dist
   "Jan — Jun 2019",
 )
 
-Delivered the official Python programming #link("https://rmbk.me/mm_python/")[curriculum] at Russia's top research university. Guided 26 students to course completion with emphasis on practical software engineering.
+Delivered the official Python programming curriculum. Guided 26 students to course completion with emphasis on practical software engineering.

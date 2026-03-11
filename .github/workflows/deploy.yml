@@ -24,7 +24,9 @@ jobs:
         uses: typst-community/setup-typst@v4
 
       - name: Compile CV
-        run: typst compile cv/main.typ Bekbulatov-Ramzan-CV.pdf
+        run: |
+          typst compile --font-path cv/fonts cv/main.typ Bekbulatov-Ramzan-CV.pdf
+          cp Bekbulatov-Ramzan-CV.pdf cv.pdf
 
       - uses: ruby/setup-ruby@v1
         with:

@@ -4,44 +4,33 @@ title: Ramzan Bekbulatov
 description:
 sitemap:
   priority: 1.0
-  lastmod: 2023-08-27
+  lastmod: 2026-03-11
   changefreq: weekly
 ---
 
-Hi! I am Ramzan, **Software Engineer** at **Meta**, Instagram & Messenger 👋🏻
+Hi! I am Ramzan, **Software Engineer** and **Tech Lead** at **Meta** 👋🏻
 
-## About me
+I build platform infrastructure powering Metaverse experiences across Messenger, Instagram, Facebook, and WhatsApp. I specialize in distributed systems, 0→1 platform building, and applying AI to engineering problems at scale.
 
-- I build infrastructure in a Metaverse-oriented team, collaborating with partners across the whole Meta
-- Effectively balance team leadership and independent work with a strong focus on achieving result
-- An active open-source contributor
-- Passionate about technologies, make things on Raspberry Pi 3 and Jetson Nano as a hobby
-- Love active travelling and photography, had a [camping trip](https://rmbk.me/blog/faroes) on Faroe Islands
+[**CV (PDF)**](/Bekbulatov-Ramzan-CV.pdf)
 
-## My repositories
+## Featured projects
+
+- [**compeek**](https://github.com/uburuntu/compeek) — AI desktop automation agent for Claude. Built for the Anthropic hackathon. [Live](https://compeek.rmbk.me)
+- [**DerpRobot**](https://t.me/DerpRobot) — AI-powered Telegram bot with 60K+ users. [Source](https://github.com/uburuntu/derp)
+- [**Telegram-Toolset**](https://github.com/uburuntu/Telegram-Toolset) — Power-user tools for Telegram. [Live](https://telegram-toolset.rmbk.me)
+- [**throttler**](https://github.com/uburuntu/throttler) — Python rate-limiting library, 105 stars, 386 PyPI dependents
+- [**awesome-math-ru**](https://github.com/uburuntu/awesome-math-ru) — Curated math books list (255 stars)
+
+## More projects
 
 **[@uburuntu](https://github.com/uburuntu)**:
 
-- [Throttler](https://github.com/uburuntu/throttler) — Simple throttling with asyncio support
-- [Математичные книги](https://github.com/uburuntu/awesome-math-ru) — Math books list
-- [rawg](https://github.com/uburuntu/rawg) — Async API wrapper for RAWG.io
-- [rfdlife_bot](https://github.com/uburuntu/rfdlife_bot) — Corporate Telegram bot
-- [Skobochka](https://github.com/uburuntu/skobochka) — Translation for Telegram
 - [YaWeather](https://github.com/uburuntu/yaweather) — Yandex Weather API wrapper
 - [jetson-startup](https://github.com/uburuntu/jetson-startup) — Getting started with the NVIDIA Jetson Nano
-- [dmonitor](https://github.com/uburuntu/dmonitor) — Internet monitoring in dormitories of MSU
-- [pgas-pta](https://github.com/uburuntu/pgas-pta) — Scraping automation for university issues
-
-## Interactive projects
-
-- [MSU Hub Bot](https://t.me/msu_hub_bot) — Bot for MSU chats [ecosystem](https://msut.me/)
-- [Математичные книги](https://rmbk.me/awesome-math-ru) — Math books site
-- [Love, Death and Math](https://t.me/maatesha) — Telegram channel with math memes
-- [DMonitor](https://github.com/uburuntu/dmonitor/releases) — Cross-platform desktop app for internet monitoring
 - [Math Clicker](https://rmbk.me/math-clicker) — Remake of cookie clicker
 
 ## Teaching
 
-- Taught the official Lomonosov MSU course on Python basics
+- Taught the official Lomonosov MSU [course](https://rmbk.me/mm_python/) on Python basics
 - 26 students got positive grades in the subject
-- [rmbk.me/mm_python](https://rmbk.me/mm_python/) — course site

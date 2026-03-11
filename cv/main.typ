@@ -23,7 +23,7 @@
 
 // ─── Page setup ──────────────────────────────────────────────
 #set page(paper: "a4", margin: (left: 1.5cm, right: 1.5cm, top: 1.3cm, bottom: 1.3cm))
-#set text(font: "Avenir Next", size: 10pt, fill: medium-grey)
+#set text(font: "Inter", size: 10pt, fill: medium-grey)
 #set par(leading: 0.5em, spacing: 0.6em)
 #set list(marker: text(size: 0.7em, fill: light-grey)[•], indent: 0pt, body-indent: 0.5em, spacing: 0.5em)
 #show link: set text(fill: blue)
@@ -64,7 +64,7 @@
 // Skills grid row: uppercase blue category label + comma-separated items.
 #let skills-row(category, items) = {
   grid(
-    columns: (7em, 1fr),
+    columns: (8.5em, 1fr),
     column-gutter: 8pt,
     text(weight: "bold", size: 9pt, fill: blue, tracking: 0.3pt)[#upper(category)],
     text(size: 9.5pt, fill: medium-grey)[#items],

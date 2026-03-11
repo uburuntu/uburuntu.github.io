@@ -30,7 +30,7 @@ Requires `typst` (`brew install typst`). Build output is gitignored.
 
 ## Typography & Visual Design
 
-**Font:** Avenir Next — used throughout for consistency. Clean geometric sans-serif with excellent weight range.
+**Font:** Inter — bundled in `cv/fonts/` (3 static weights: Regular, Medium, Bold). Open-source, works on all platforms including CI. Compiled with `--font-path fonts`.
 
 **Weight hierarchy:**
 - Name: bold (32pt, tracked)
@@ -60,4 +60,6 @@ Bullet points are grounded in Meta performance reviews (H2 2021 through Year-end
 
 ## CI/CD
 
-The GitHub Actions workflow (`../.github/workflows/deploy.yml`) compiles `main.typ` → `Bekbulatov-Ramzan-CV.pdf` using `typst-community/setup-typst@v4`, and places it at the site root. Available at `rmbk.me/Bekbulatov-Ramzan-CV.pdf` with a redirect from `rmbk.me/cv.pdf`.
+The GitHub Actions workflow (`../.github/workflows/deploy.yml`) compiles `main.typ` with `--font-path cv/fonts` using `typst-community/setup-typst@v4`, and places both `Bekbulatov-Ramzan-CV.pdf` and `cv.pdf` at the site root. Available at:
+- `rmbk.me/Bekbulatov-Ramzan-CV.pdf` — proper download filename
+- `rmbk.me/cv.pdf` — short URL (same file)

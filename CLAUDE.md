@@ -43,7 +43,7 @@ Push to `master` branch triggers GitHub Actions build and deploy to GitHub Pages
 
 ## CV (Typst)
 
-The `cv/` directory contains a CV built with Typst (`cv/main.typ`). The CI/CD pipeline compiles it to `Bekbulatov-Ramzan-CV.pdf` at the site root, served at `rmbk.me/Bekbulatov-Ramzan-CV.pdf`. The path `rmbk.me/cv.pdf` redirects there via `cv-redirect.html`. The `cv/` directory is excluded from Jekyll processing. See `cv/CLAUDE.md` for design rationale. To compile locally: `cd cv && make pdf`.
+The `cv/` directory contains a CV built with Typst (`cv/main.typ`) using bundled Inter font (`cv/fonts/`). The CI/CD pipeline compiles it and places both `Bekbulatov-Ramzan-CV.pdf` and `cv.pdf` at the site root. The `cv/` directory is excluded from Jekyll processing. See `cv/CLAUDE.md` for design rationale. To compile locally: `cd cv && make pdf`.
 
 ## Key Config
 

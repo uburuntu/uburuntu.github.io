@@ -27,9 +27,11 @@ jobs:
         run: |
           typst compile --font-path cv/fonts cv/main.typ Bekbulatov-Ramzan-CV.pdf
           typst compile --font-path cv/fonts cv/main.typ images/cv-preview.png --format png --ppi 150 --pages 1
+          typst compile --font-path cv/fonts cv/main.typ "images/cv-page-{p}.png" --format png --ppi 200
           cp Bekbulatov-Ramzan-CV.pdf cv.pdf
           mkdir -p _data
           echo "last_modified: \"$(git log -1 --format='%cd' --date=format:'%B %Y' -- cv/main.typ)\"" > _data/cv.yml
+          echo "pages: $(ls -1 images/cv-page-*.png | wc -l | tr -d ' ')" >> _data/cv.yml
 
       - uses: ruby/setup-ruby@v1
         with:

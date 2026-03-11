@@ -66,19 +66,23 @@ sitemap: false
       /* Mobile fallback: PDF embed doesn't work on iOS/Android */
       .mobile-fallback {
         display: none;
-        flex: 1;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        padding: 32px 24px;
-        text-align: center;
+        padding: 20px 16px 32px;
         gap: 24px;
+        overflow-y: auto;
+      }
+      .mobile-fallback .pages {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        max-width: 540px;
       }
       .mobile-fallback img {
-        max-width: 320px;
         width: 100%;
-        border-radius: 8px;
-        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+        border-radius: 4px;
+        box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
       }
       .mobile-fallback .open-btn {
         display: inline-block;
@@ -109,8 +113,13 @@ sitemap: false
     </header>
     <embed src="/Bekbulatov-Ramzan-CV.pdf" type="application/pdf" />
     <div class="mobile-fallback">
-      <img src="/images/cv-preview.png" alt="CV Preview" />
-      <a class="open-btn" href="/Bekbulatov-Ramzan-CV.pdf">Open PDF</a>
+      <div class="pages">
+        {% assign page_count = site.data.cv.pages | default: 2 %}
+        {% for i in (1..page_count) %}
+        <img src="/images/cv-page-{{ i }}.png" alt="CV — Page {{ i }}" />
+        {% endfor %}
+      </div>
+      <a class="open-btn" href="/Bekbulatov-Ramzan-CV.pdf">Download PDF ↓</a>
     </div>
   </body>
 </html>

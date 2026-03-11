@@ -26,6 +26,7 @@ jobs:
       - name: Compile CV
         run: |
           typst compile --font-path cv/fonts cv/main.typ Bekbulatov-Ramzan-CV.pdf
+          typst compile --font-path cv/fonts cv/main.typ images/cv-preview.png --format png --ppi 150 --pages 1
           cp Bekbulatov-Ramzan-CV.pdf cv.pdf
 
       - uses: ruby/setup-ruby@v1

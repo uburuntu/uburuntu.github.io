@@ -32,7 +32,7 @@ sitemap: false
       header {
         background: #fff;
         border-bottom: 1px solid #e0e0e0;
-        padding: 12px 24px;
+        padding: 12px 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -45,33 +45,72 @@ sitemap: false
         font-weight: 500;
       }
       header a:hover { text-decoration: underline; }
-      .title {
-        font-size: 15px;
-        color: #333;
-        font-weight: 600;
-      }
       .updated {
         font-size: 12px;
-        color: #999;
-        margin-left: 12px;
+        color: #aaa;
         font-weight: 400;
       }
-      .actions { display: flex; gap: 16px; }
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      /* Desktop: embed PDF inline */
       embed {
         flex: 1;
         width: 100%;
         border: none;
       }
+
+      /* Mobile fallback: PDF embed doesn't work on iOS/Android */
+      .mobile-fallback {
+        display: none;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 32px 24px;
+        text-align: center;
+        gap: 24px;
+      }
+      .mobile-fallback img {
+        max-width: 320px;
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
+      }
+      .mobile-fallback .open-btn {
+        display: inline-block;
+        background: #0F6688;
+        color: #fff;
+        padding: 14px 32px;
+        border-radius: 8px;
+        font-size: 16px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.15s;
+      }
+      .mobile-fallback .open-btn:hover { background: #00425C; color: #fff; }
+
+      @media (max-width: 768px), (hover: none) and (pointer: coarse) {
+        embed { display: none; }
+        .mobile-fallback { display: flex; }
+      }
     </style>
   </head>
   <body>
     <header>
-      <span class="title">Ramzan Bekbulatov — CV{% if site.data.cv.last_modified %}<span class="updated">Updated {{ site.data.cv.last_modified }}</span>{% endif %}</span>
+      <a href="/">← rmbk.me</a>
       <div class="actions">
-        <a href="/Bekbulatov-Ramzan-CV.pdf" download>Download PDF</a>
-        <a href="/">← rmbk.me</a>
+        {% if site.data.cv.last_modified %}<span class="updated">Updated {{ site.data.cv.last_modified }}</span>{% endif %}
+        <a href="/Bekbulatov-Ramzan-CV.pdf" download>Download PDF ↓</a>
       </div>
     </header>
     <embed src="/Bekbulatov-Ramzan-CV.pdf" type="application/pdf" />
+    <div class="mobile-fallback">
+      <img src="/images/cv-preview.png" alt="CV Preview" />
+      <a class="open-btn" href="/Bekbulatov-Ramzan-CV.pdf">Open PDF</a>
+    </div>
   </body>
 </html>

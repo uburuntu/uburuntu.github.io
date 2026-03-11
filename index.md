@@ -10,7 +10,7 @@ sitemap:
 
 Hi! I am Ramzan, **Software Engineer** and **Tech Lead** at **Meta** 👋🏻
 
-I build platform infrastructure powering Metaverse experiences across Messenger, Instagram, Facebook, and WhatsApp. I specialize in distributed systems, 0→1 platform building, and applying AI to engineering problems at scale.
+I build platform infrastructure across Instagram, Facebook, WhatsApp, and Messenger. I specialize in distributed systems, 0→1 platform building, and applying AI to engineering problems at scale.
 
 ## Featured projects
 

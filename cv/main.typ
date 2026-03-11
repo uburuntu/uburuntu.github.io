@@ -129,7 +129,7 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* buildin
 )
 
 #list(
-  [Built Artifacto from scratch — an event-driven rendering framework with on-demand artifact generation and real-time sync. Presented to VP of Engineering for buy-in. Delivers *1B+ daily artifacts*, adopted across 12+ use-cases, saves 2–3 weeks each],
+  [Built Artifacto from scratch — an event-driven rendering framework with on-demand artifact generation and real-time sync. Presented to VP of Engineering for buy-in. Delivers *1B+ daily artifacts*, adopted across 12+ use-cases, reducing integration time by 2–3 engineering weeks each],
 
   [Unified 4 fragmented APIs into the Unlockables Platform via consolidated endpoints, smart pagination, and image caching. Achieved *90% p50 latency improvement* — sub-500ms vs 2.5s legacy — powers 8+ clients across Meta apps],
 
@@ -137,7 +137,9 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* buildin
 
   [Sole DRI on Messenger for Style 2 launch, *7M DAU*. Kept the entire backend running when team went from *4 engineers to 1*, shipping a Company priority on time],
 
-  [\#1 code reviewer year over year — *2,500+ substantive reviews*. Individually mentored *8+ engineers*, conducted 60+ interviews. Re-organized engineering practices, *24% → 82%* satisfaction. Drove roadmap planning across Reality Labs and partners, defining priorities and aligning partner teams],
+  [Drove roadmap planning across Reality Labs and partners, defining priorities and aligning partner teams on architectural direction. Re-organized engineering practices, *24% → 82%* satisfaction],
+
+  [\#1 code reviewer year over year — *2,500+ substantive reviews*. Individually mentored *8+ engineers*, conducted 60+ interviews],
 )
 
 #divider()

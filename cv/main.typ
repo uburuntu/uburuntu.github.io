@@ -47,7 +47,7 @@
     columns: (1fr, auto),
     gutter: 4pt,
     text(weight: "bold", size: 10.5pt, fill: medium-grey)[#role],
-    align(right, text(size: 9pt, fill: light-grey, weight: "regular")[#dates]),
+    align(right, text(size: 9pt, fill: grey, weight: "regular")[#dates]),
   )
   v(-0.15em)
   text(size: 9.5pt, fill: grey)[#org]
@@ -96,7 +96,7 @@
 // Keep to 3–4 lines. Lead with years + domain, then 2 concrete achievements, then leadership.
 #cv-section("Summary")
 
-Software Engineer and Tech Lead with *#total-years+ years of experience* building and consolidating platform infrastructure at scale, including #meta-years+ years at Meta. Specialize in *unifying fragmented systems into reliable, high-performance platforms* — from a rendering framework serving 1B+ daily artifacts to *AI-powered code modernization* adopted company-wide. Operating at Staff scope: driving cross-org technical strategy, owning 0→1 platform architecture, and mentoring engineers across multiple teams.
+Software Engineer and Tech Lead with *#total-years+ years of experience* building and consolidating platform infrastructure at scale, including #meta-years+ years at Meta. Specialize in *unifying fragmented systems into reliable, high-performance platforms* — from a rendering framework serving 1B+ daily artifacts to *AI-powered code modernization* adopted company-wide. Driving cross-org technical strategy, owning 0→1 platform architecture, and mentoring engineers across multiple teams.
 
 // ─── Work Experience ─────────────────────────────────────────
 // Each bullet: bold lead-in phrase + one bold metric. Grounded in perf review data.
@@ -136,13 +136,13 @@ Software Engineer and Tech Lead with *#total-years+ years of experience* buildin
 #divider()
 
 #cv-event(
-  "Software Engineer → CTO",
+  "Software Engineer → CTO (6-person team)",
   "Centurion Capital — algorithmic trading",
   "Oct 2018 — Mar 2020 (1y 6m)",
 )
 
 #list(
-  [*Promoted to CTO* — built a team of 6 engineers from scratch, owning all technical strategy and architecture decisions],
+  [*Promoted to CTO* — owned all technical strategy and architecture decisions],
   [*Built the entire trading platform from zero* — real-time data pipeline processing terabytes per day, ML-driven trading engine, and fault-tolerant Kubernetes-based microservices (*14 services*) with 24/7 uptime],
 )
 

@@ -3,6 +3,8 @@ name: Deploy Jekyll to GitHub Pages
 on:
   push:
     branches: [master]
+  schedule:
+    - cron: "0 0 1 * *"  # 1st of every month — keeps auto-computed dates fresh
   workflow_dispatch:
 
 permissions:

@@ -18,6 +18,12 @@ Thumbs.db
 /apple-touch-icon.png
 /apple-touch-icon-precomposed.png
 
+# CV build output
+cv/build/
+
+# Claude Code
+.claude/
+
 # IDE
 .idea/
 .vscode/

@@ -25,8 +25,10 @@ lang: ru
 - Кайфовое домашнее полотенце
 - Ваша любимая книга
 - Coffee Table книги
-- LTT Stubby Screwdriver [x](https://global.lttstore.com/products/stubby-screwdriver?variant=41700546281517)
-  - Нравится вайб LinusTechTips, можно что-то ещё там подобрать
+- LTT TrueSpec USB Type C to C Cable, 1.5m [x](https://global.lttstore.com/products/ltt-truespec-cable-usb-type-c-to-c)
+  - Важно выбрать длину 1.5m; нравится вайб LinusTechTips, можно что-то ещё там подобрать
+- Электронный штангенциркуль Mitutoyo 500-196-30, 0-150 мм / 0-6" [x](https://mqs.co.uk/products/mitutoyo-digital-caliper-0-150mm-0-6-500-196-30)
+  - Важно: именно качественный, не no-name с маркетплейса; хороший аналог от Mitutoyo/INSIZE тоже ок
 
 ### Потом отсюда
 
@@ -67,6 +69,7 @@ lang: ru
 - Зажигалка Zippo с крутой гравировкой
 - Плоскогубцы Milwaukee
 - Candle lighter Zippo
+- LTT Stubby Screwdriver
 - и очень много другого
 
-**Последнее изменение**: январь 2026
+**Последнее изменение**: май 2026

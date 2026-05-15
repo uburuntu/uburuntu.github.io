@@ -7,6 +7,6 @@ gem "jekyll-sass-converter", "~> 3.1" # Use LibSass for legacy theme compatibili
 group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-feed", "~> 0.12"
-  gem "jekyll-seo-tag", "~> 2.6"
+  gem "jekyll-seo-tag", "~> 2.9"
   gem "jemoji"
 end
